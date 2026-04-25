@@ -204,29 +204,29 @@
     <div class="rounded-2xl bg-gradient-to-br from-amber-50 via-white to-purple-50 border-2 border-amber-300 p-8 shadow-lg">
       <p class="text-xs font-bold tracking-widest text-amber-700 uppercase">🎯 ひとことで言うと</p>
       <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-2 leading-snug">
-        EdenTeacher の契約状態が、EdenQuest の利用期限を自動で決める。
+        EdenTeacher の契約変更が、EdenQuest 側に常に同期される。
       </h2>
       <p class="text-slate-700 mt-3">
-        顧客管理を二重化せず、<strong>契約終了・更新の対応漏れ</strong>を構造的に排除する。
-        「家庭教師の契約が終わったのにアプリが使い続けられる」「契約更新したのにアプリが止まったまま」
-        — そういう手作業の取りこぼしが起きない仕組みになっている。
+        顧客情報を二重管理せず、<strong>契約状態のズレや対応漏れ</strong>を構造的に減らす。
+        「契約更新したのにアプリ側が古いまま」「気づかずアプリを使い続けられている」 — そういう手作業の取りこぼしが起きにくい仕組み。
+        最終的なアクセス停止 / 卒業生扱いの判断は<strong>管理者が手動で行う</strong>が、判断材料は常に最新で揃った状態を作れる。
       </p>
       <div class="grid md:grid-cols-2 gap-4 mt-6">
         <div class="bg-rose-50 border border-rose-200 rounded-xl p-5">
           <p class="text-xs font-bold text-rose-700 mb-2">❌ もし連携してなかったら</p>
           <ul class="text-sm text-rose-900 space-y-2">
-            <li>・契約が終了しても EdenQuest を <strong>手動で停止</strong>しないと使い続けられる</li>
-            <li>・契約更新のたびに EdenQuest の利用期限を <strong>手動で延ばす</strong>必要</li>
-            <li>・二重入力でデータがズレる → 対応漏れが顧客クレームに</li>
+            <li>・EdenTeacher の契約変更が EdenQuest に伝わらず、<strong>状態がズレたまま気付かない</strong></li>
+            <li>・契約更新のたびに EdenQuest 側の残回数を <strong>手動で書き換える</strong>必要</li>
+            <li>・二重入力でデータがズレ、対応漏れが顧客クレームに</li>
             <li>・運営工数が顧客数に比例して増えていく</li>
           </ul>
         </div>
         <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5">
           <p class="text-xs font-bold text-emerald-700 mb-2">✅ 連携した結果（現状）</p>
           <ul class="text-sm text-emerald-900 space-y-2">
-            <li>・残回数 0 になれば EdenQuest 側で <strong>自動的にアクセス制限</strong></li>
-            <li>・残回数を更新すれば <strong>即座に EdenQuest に反映</strong></li>
-            <li>・先生は EdenTeacher だけ操作 → 両方が同期される</li>
+            <li>・残回数や継続意思の変更が <strong>即座に EdenQuest に反映</strong></li>
+            <li>・管理者は最新の契約状態を見て判断（停止 / 卒業生扱い等）できる</li>
+            <li>・先生は EdenTeacher だけ操作 → 両方の状態が同期される</li>
             <li>・運営工数が <strong>顧客数に依存しない</strong>（スケール可能）</li>
           </ul>
         </div>
