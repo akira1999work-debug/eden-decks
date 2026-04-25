@@ -44,44 +44,6 @@
 
 <main class="max-w-5xl mx-auto px-6 py-10 space-y-12">
 
-  <!-- 一番のメリット (elevator pitch) -->
-  <section>
-    <div class="rounded-2xl bg-gradient-to-br from-amber-50 via-white to-purple-50 border-2 border-amber-300 p-8 shadow-lg">
-      <p class="text-xs font-bold tracking-widest text-amber-700 uppercase">🎯 ひとことで言うと</p>
-      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mt-2 leading-snug">
-        EdenTeacher の契約状態が、EdenQuest の利用期限を自動で決める。
-      </h2>
-      <p class="text-slate-700 mt-3">
-        顧客管理を二重化せず、<strong>契約終了・更新の対応漏れ</strong>を構造的に排除する。
-        「家庭教師の契約が終わったのにアプリが使い続けられる」「契約更新したのにアプリが止まったまま」
-        — そういう手作業の取りこぼしが起きない仕組みになっている。
-      </p>
-      <div class="grid md:grid-cols-2 gap-4 mt-6">
-        <div class="bg-rose-50 border border-rose-200 rounded-xl p-5">
-          <p class="text-xs font-bold text-rose-700 mb-2">❌ もし連携してなかったら</p>
-          <ul class="text-sm text-rose-900 space-y-2">
-            <li>・契約が終了しても EdenQuest を <strong>手動で停止</strong>しないと使い続けられる</li>
-            <li>・契約更新のたびに EdenQuest の利用期限を <strong>手動で延ばす</strong>必要</li>
-            <li>・二重入力でデータがズレる → 対応漏れが顧客クレームに</li>
-            <li>・運営工数が顧客数に比例して増えていく</li>
-          </ul>
-        </div>
-        <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-5">
-          <p class="text-xs font-bold text-emerald-700 mb-2">✅ 連携した結果（現状）</p>
-          <ul class="text-sm text-emerald-900 space-y-2">
-            <li>・残回数 0 になれば EdenQuest 側で <strong>自動的にアクセス制限</strong></li>
-            <li>・残回数を更新すれば <strong>即座に EdenQuest に反映</strong></li>
-            <li>・先生は EdenTeacher だけ操作 → 両方が同期される</li>
-            <li>・運営工数が <strong>顧客数に依存しない</strong>（スケール可能）</li>
-          </ul>
-        </div>
-      </div>
-      <p class="text-xs text-slate-500 mt-5">
-        この連携の中身（Push / Pull / Gate の3つの動き）は後ろの「連携アーキテクチャ」セクションで詳しく解説します。
-      </p>
-    </div>
-  </section>
-
   <!-- 2システムの紹介 -->
   <section>
     <h2 class="text-xl font-bold mb-4 text-slate-900">2つのシステム</h2>
@@ -255,6 +217,37 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- 一番のメリット (elevator pitch / コンパクト版) -->
+  <section>
+    <div class="rounded-xl bg-white border border-slate-200 p-5">
+      <p class="text-[11px] font-bold tracking-widest text-amber-700 uppercase">🎯 ひとことで言うと</p>
+      <p class="text-base md:text-lg font-bold text-slate-900 mt-1 leading-snug">
+        EdenTeacher の契約状態が、EdenQuest の利用期限を自動で決める。
+      </p>
+      <p class="text-sm text-slate-600 mt-2">
+        顧客管理を二重化せず、契約終了・更新の対応漏れを構造的に排除する。
+      </p>
+      <div class="grid md:grid-cols-2 gap-3 mt-4">
+        <div class="bg-rose-50 border border-rose-200 rounded-lg p-3">
+          <p class="text-[11px] font-bold text-rose-700 mb-1">❌ 連携が無いと</p>
+          <ul class="text-xs text-rose-900 space-y-1">
+            <li>・契約終了しても手動停止しないと使い続けられる</li>
+            <li>・契約更新ごとに利用期限を手動で延ばす必要</li>
+            <li>・運営工数が顧客数に比例して増える</li>
+          </ul>
+        </div>
+        <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
+          <p class="text-[11px] font-bold text-emerald-700 mb-1">✅ 連携した結果</p>
+          <ul class="text-xs text-emerald-900 space-y-1">
+            <li>・残回数 0 で自動アクセス制限</li>
+            <li>・残回数の更新が即座に反映</li>
+            <li>・運営工数が顧客数に依存しない</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
