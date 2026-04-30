@@ -44,10 +44,17 @@
     box-shadow: 0 8px 16px -8px rgba(124,58,237,0.4);
   }
   .hero-bg {
+    position: relative;
     background:
-      radial-gradient(ellipse 60% 80% at 100% 0%, rgba(124,58,237,0.10) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 80% at 0% 100%, rgba(217,119,6,0.08) 0%, transparent 50%),
-      linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      linear-gradient(90deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.88) 45%, rgba(255,255,255,0.55) 70%, rgba(255,255,255,0.25) 100%),
+      url('./hero-decision.jpg') center right / cover no-repeat;
+  }
+  @media (max-width: 768px) {
+    .hero-bg {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 60%, rgba(255,255,255,0.55) 100%),
+        url('./hero-decision.jpg') center / cover no-repeat;
+    }
   }
   .vip-badge {
     display: inline-block;
@@ -201,13 +208,6 @@
       </div>
     </div>
     <p class="mt-12 text-xs text-slate-400 tracking-widest">PLATINUM 2026 / 本年度 最終募集</p>
-  </div>
-</section>
-
-<!-- HERO IMAGE -->
-<section class="bg-slate-900">
-  <div class="max-w-6xl mx-auto">
-    <img src="./hero-decision.jpg" alt="Decision flow — PLAN → STRATEGY → TEAMWORK → DECISION" class="w-full h-auto block" loading="eager">
   </div>
 </section>
 
