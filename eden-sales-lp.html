@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="description" content="家庭教師Edenの新規見込み客向け紹介スライド。Eden保護者ポータル × EdenQuestでできることを画面イメージ付きで解説。">
+<title>Eden 保護者ポータル × EdenQuest — サービス紹介</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --quest-amber: #d97706;
+    --quest-amber-soft: #fef3c7;
+    --quest-violet: #7c3aed;
+    --quest-violet-soft: #ede9fe;
+    --ink: #0f172a;
+    --ink-soft: #334155;
+    --line: #e2e8f0;
+  }
+  body {
+    font-family: "Hiragino Sans", "Yu Gothic Medium", "Yu Gothic", sans-serif;
+    background: radial-gradient(ellipse at top, #1e1b4b 0%, #0f172a 50%, #020617 100%);
+    color: var(--ink);
+    margin: 0;
+    overflow: hidden;
+  }
+  .stage {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .slide {
+    width: min(1280px, 96vw);
+    height: min(720px, calc(96vw * 9 / 16));
+    background: white;
+    border-radius: 18px;
+    box-shadow:
+      0 0 0 1px rgba(124, 58, 237, 0.08),
+      0 30px 80px -20px rgba(15, 23, 42, 0.6);
+    padding: 56px 72px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  .slide.active { display: flex; }
+  .slide::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--quest-violet) 0%, var(--quest-amber) 100%);
+  }
+  .slide-num {
+    position: absolute;
+    bottom: 24px;
+    right: 32px;
+    font-size: 11px;
+    color: #94a3b8;
+    letter-spacing: 0.1em;
+    font-variant-numeric: tabular-nums;
+  }
+  .slide-tag {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--quest-violet);
+    background: var(--quest-violet-soft);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .slide-tag.amber { color: var(--quest-amber); background: var(--quest-amber-soft); }
+  .ph {
+    background:
+      repeating-linear-gradient(45deg, transparent 0 12px, rgba(124,58,237,0.04) 12px 13px),
+      linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1px dashed #94a3b8;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-size: 13px;
+    text-align: center;
+    padding: 16px;
+    letter-spacing: 0.02em;
+  }
+  .nav {
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    padding: 8px 16px;
+    border-radius: 999px;
+    color: #cbd5e1;
+    font-size: 12px;
+    z-index: 50;
+    letter-spacing: 0.05em;
+  }
+  .nav button {
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.15s;
+    font-size: 14px;
+  }
+  .nav button:hover {
+    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+  }
+  .toc {
+    position: fixed;
+    inset: 0;
+    background: rgba(2,6,23,0.92);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    overflow-y: auto;
+    backdrop-filter: blur(8px);
+  }
+  .toc.open { display: flex; }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  .toc-item {
+    background: white;
+    color: var(--ink);
+    padding: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 13px;
+    border-top: 3px solid transparent;
+  }
+  .toc-item:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--quest-amber);
+  }
+  .toc-item .n { color: #94a3b8; font-size: 10px; letter-spacing: 0.1em; font-variant-numeric: tabular-nums; }
+  h1.hero {
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+  }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .accent-bar-amber { border-left: 3px solid var(--quest-amber); padding-left: 16px; }
+  .accent-bar-violet { border-left: 3px solid var(--quest-violet); padding-left: 16px; }
+  .crest {
+    width: 56px; height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: -0.02em;
+    box-shadow: 0 8px 16px -8px rgba(124,58,237,0.4);
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+
+  <!-- Slide 1: Cover -->
+  <section class="slide active">
+    <div class="flex-1 flex flex-col justify-center">
+      <p class="text-sm tracking-[0.25em] text-slate-500 mb-6">FOR PARENTS / 中学受験準備のご家庭へ</p>
+      <h1 class="hero">中学受験を、<br><span class="gradient-text">家族の「物語」</span>に。</h1>
+      <p class="mt-8 text-xl text-slate-600 leading-relaxed max-w-2xl">
+        プロ家庭教師による1on1指導と、子どもが自分から机に向かう学習アプリ。<br>
+        家庭教師Eden が、ご家庭の毎日を支えます。
+      </p>
+      <div class="mt-12 flex items-center gap-4">
+        <div class="crest">E</div>
+        <div>
+          <p class="font-bold text-slate-900">家庭教師Eden</p>
+          <p class="text-xs text-slate-500 tracking-wide">Eden 保護者ポータル × EdenQuest</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-xs text-slate-400 tracking-wider">2026 EDITION / SERVICE INTRODUCTION</p>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 2: Pain points -->
+  <section class="slide">
+    <span class="slide-tag">ISSUE</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">こんな不安、ありませんか?</h2>
+    <p class="text-slate-500 mb-10">中学受験準備のご家庭でよくいただくご相談</p>
+    <div class="grid grid-cols-3 gap-6 flex-1">
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-8 flex flex-col">
+        <div class="text-4xl mb-4">📉</div>
+        <h3 class="font-bold text-slate-900 text-lg mb-3">塾任せでは見えない</h3>
+        <p class="text-sm text-slate-600 leading-7">
+          毎週のテスト結果は届くけれど、子どもが<strong>何でつまずいているか</strong>がわからない。家で声をかけても本人もうまく説明できない。
+        </p>
+      </div>
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-8 flex flex-col">
+        <div class="text-4xl mb-4">⏰</div>
+        <h3 class="font-bold text-slate-900 text-lg mb-3">隙間時間が活かせない</h3>
+        <p class="text-sm text-slate-600 leading-7">
+          移動中・寝る前の<strong>10分</strong>を勉強に使ってほしい。でも参考書を出すまでが面倒で、結局スマホでゲーム…
+        </p>
+      </div>
+      <div class="rounded-2xl bg-slate-50 border border-slate-200 p-8 flex flex-col">
+        <div class="text-4xl mb-4">🔁</div>
+        <h3 class="font-bold text-slate-900 text-lg mb-3">復習が続かない</h3>
+        <p class="text-sm text-slate-600 leading-7">
+          一度覚えたはずの漢字や歴史用語が<strong>3週間で抜ける</strong>。「復習しなさい」と言うほど嫌がられる悪循環。
+        </p>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 3: 3 pillars -->
+  <section class="slide">
+    <span class="slide-tag">SOLUTION</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">Eden が用意した、3つの柱</h2>
+    <p class="text-slate-500 mb-10">「先生」「アプリ」「保護者の見える化」を一気通貫で。</p>
+    <div class="grid grid-cols-3 gap-6 flex-1">
+      <div class="rounded-2xl border-2 border-slate-200 p-8 flex flex-col">
+        <div class="text-3xl mb-3">👩‍🏫</div>
+        <p class="text-xs tracking-widest text-slate-500 mb-1">PILLAR 1</p>
+        <h3 class="font-bold text-slate-900 text-xl mb-3">プロ家庭教師</h3>
+        <p class="text-sm text-slate-600 leading-7 flex-1">
+          受験経験豊富なEden所属講師による週1〜2回の1on1指導。Zoomで全国対応。
+        </p>
+        <p class="text-xs text-slate-400 mt-4 pt-4 border-t border-slate-100">学習設計 / 弱点特定 / 過去問添削</p>
+      </div>
+      <div class="rounded-2xl border-2 border-amber-300 p-8 flex flex-col bg-amber-50/40">
+        <div class="text-3xl mb-3">⚔️</div>
+        <p class="text-xs tracking-widest text-amber-700 mb-1">PILLAR 2</p>
+        <h3 class="font-bold text-slate-900 text-xl mb-3">EdenQuest <span class="text-sm text-slate-500 font-normal">(学習アプリ)</span></h3>
+        <p class="text-sm text-slate-600 leading-7 flex-1">
+          ゲーミフィケーション設計の学習アプリ。教科書・問題・復習・ペット育成が1つに。
+        </p>
+        <p class="text-xs text-amber-700 mt-4 pt-4 border-t border-amber-100">毎日の自走 / 隙間時間 / 反復</p>
+      </div>
+      <div class="rounded-2xl border-2 border-slate-200 p-8 flex flex-col">
+        <div class="text-3xl mb-3">📚</div>
+        <p class="text-xs tracking-widest text-slate-500 mb-1">PILLAR 3</p>
+        <h3 class="font-bold text-slate-900 text-xl mb-3">Eden 保護者ポータル</h3>
+        <p class="text-sm text-slate-600 leading-7 flex-1">
+          授業報告・残回数・LINE通知・進捗確認まで、保護者が必要な情報を1ヶ所に。
+        </p>
+        <p class="text-xs text-slate-400 mt-4 pt-4 border-t border-slate-100">透明性 / 連絡 / 進捗の見える化</p>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 4: EdenQuest overview -->
+  <section class="slide">
+    <span class="slide-tag amber">PRODUCT — EdenQuest</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">EdenQuest — 子どもが自分から開きたくなる学習アプリ</h2>
+    <p class="text-slate-500 mb-8">中学受験生 (小学校4-6年生) のために設計されたゲーミフィケーション学習プラットフォーム</p>
+    <div class="grid grid-cols-2 gap-8 flex-1">
+      <div class="ph">
+        📷 [画面: EdenQuest トップ画面 / アドベンチャーマップ]
+      </div>
+      <div class="flex flex-col justify-center space-y-4">
+        <div class="flex gap-3">
+          <span class="text-amber-600 text-xl">⚔️</span>
+          <div>
+            <p class="font-bold text-slate-900">クエスト形式の学習</p>
+            <p class="text-sm text-slate-600">単元をクリアするごとにストーリーが進む</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-amber-600 text-xl">🐉</span>
+          <div>
+            <p class="font-bold text-slate-900">ペットの育成</p>
+            <p class="text-sm text-slate-600">勉強するほどパートナーが進化する</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-amber-600 text-xl">📖</span>
+          <div>
+            <p class="font-bold text-slate-900">デジタル教科書</p>
+            <p class="text-sm text-slate-600">ハイライト・用語集付きで重要箇所を整理</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-amber-600 text-xl">🎯</span>
+          <div>
+            <p class="font-bold text-slate-900">ボス問題への挑戦</p>
+            <p class="text-sm text-slate-600">単元を学んだら確認テストで定着確認</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 5: Quest -->
+  <section class="slide">
+    <span class="slide-tag amber">EdenQuest 機能 1/4</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">クエスト型レッスン</h2>
+    <p class="text-slate-500 mb-8">単元をクリアすると、次のステージが解放される。</p>
+    <div class="grid grid-cols-5 gap-6 flex-1">
+      <div class="col-span-3 ph">📷 [画面: クエストマップ — 単元がノードで連なるアドベンチャー画面]</div>
+      <div class="col-span-2 flex flex-col justify-center space-y-5">
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">「勉強」を「冒険」に</p>
+          <p class="text-sm text-slate-600 leading-7">教科書の章立てがそのままダンジョンに。クリアごとに次のステージが開く。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">XP・レベルでやる気を可視化</p>
+          <p class="text-sm text-slate-600 leading-7">問題を解くたびに経験値。レベルアップ演出で達成感を持続。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">「フラグメント」で進捗を実感</p>
+          <p class="text-sm text-slate-600 leading-7">単元内のレッスンを集めると物語のピースが揃う設計。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 6: Textbook -->
+  <section class="slide">
+    <span class="slide-tag amber">EdenQuest 機能 2/4</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">デジタル教科書</h2>
+    <p class="text-slate-500 mb-8">ハイライト・用語集・要約で、教科書を「読み流さない」設計に。</p>
+    <div class="grid grid-cols-5 gap-6 flex-1">
+      <div class="col-span-2 flex flex-col justify-center space-y-5">
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">ドラッグでハイライト</p>
+          <p class="text-sm text-slate-600 leading-7">気になる箇所を色付きでマーク。後でまとめて見返せる。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">用語集が自動で開く</p>
+          <p class="text-sm text-slate-600 leading-7">難しい言葉はその場で確認。辞書を引く手間ゼロ。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">要約カード付き</p>
+          <p class="text-sm text-slate-600 leading-7">章末で「結局この単元で何を学んだか」を1枚にまとめて確認。</p>
+        </div>
+      </div>
+      <div class="col-span-3 ph">📷 [画面: デジタル教科書 — マーカー&用語集が表示された状態]</div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 7: Pet -->
+  <section class="slide">
+    <span class="slide-tag amber">EdenQuest 機能 3/4</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">ペット育成</h2>
+    <p class="text-slate-500 mb-8">勉強したぶんだけ、相棒が進化する。「もう一問」がうまれる仕組み。</p>
+    <div class="grid grid-cols-5 gap-6 flex-1">
+      <div class="col-span-3 ph">📷 [画面: ペットエディタ + ペット表示画面 / 進化前後の比較]</div>
+      <div class="col-span-2 flex flex-col justify-center space-y-5">
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">5ステップでペット作成</p>
+          <p class="text-sm text-slate-600 leading-7">種族・色・名前を選び、自分だけの相棒を最初に決める。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">学習に応じて進化</p>
+          <p class="text-sm text-slate-600 leading-7">XPが貯まると姿が変わる。「次の進化が見たい」というモチベーションに。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">アーカイブで成長を振り返り</p>
+          <p class="text-sm text-slate-600 leading-7">過去の進化過程をいつでも見返せる。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 8: Review -->
+  <section class="slide">
+    <span class="slide-tag amber">EdenQuest 機能 4/4</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">復習・反復システム</h2>
+    <p class="text-slate-500 mb-8">「3週間で抜ける」を防ぐ、忘却曲線にあわせた自動復習。</p>
+    <div class="grid grid-cols-5 gap-6 flex-1">
+      <div class="col-span-2 flex flex-col justify-center space-y-5">
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">フラッシュカード自動生成</p>
+          <p class="text-sm text-slate-600 leading-7">間違えた問題から復習カードを自動でリストアップ。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">ボス問題で確認</p>
+          <p class="text-sm text-slate-600 leading-7">単元の最後にまとまった問題で定着度をチェック。</p>
+        </div>
+        <div class="accent-bar-amber">
+          <p class="font-bold text-slate-900 mb-1">学習履歴の蓄積</p>
+          <p class="text-sm text-slate-600 leading-7">いつ何を学習したかが残るので、講師が次の指導で活用。</p>
+        </div>
+      </div>
+      <div class="col-span-3 ph">📷 [画面: フラッシュカード復習画面 + ボス問題チャレンジ画面]</div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 9: Portal overview -->
+  <section class="slide">
+    <span class="slide-tag">PRODUCT — Eden 保護者ポータル</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">Eden 保護者ポータル</h2>
+    <p class="text-slate-500 mb-8">「いつ・誰が・何を教えて・どこまで進んだか」が、ひと目でわかる。</p>
+    <div class="grid grid-cols-2 gap-8 flex-1">
+      <div class="flex flex-col justify-center space-y-4">
+        <div class="flex gap-3">
+          <span class="text-slate-700 text-xl">📝</span>
+          <div>
+            <p class="font-bold text-slate-900">授業報告書</p>
+            <p class="text-sm text-slate-600">毎回の授業内容・宿題が時系列で残る</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-slate-700 text-xl">📊</span>
+          <div>
+            <p class="font-bold text-slate-900">残回数・スケジュール</p>
+            <p class="text-sm text-slate-600">契約の消化状況をリアルタイム表示</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-slate-700 text-xl">💬</span>
+          <div>
+            <p class="font-bold text-slate-900">LINE 通知連携</p>
+            <p class="text-sm text-slate-600">授業報告・お知らせが普段使いのLINEに届く</p>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <span class="text-slate-700 text-xl">📹</span>
+          <div>
+            <p class="font-bold text-slate-900">授業録画の限定公開</p>
+            <p class="text-sm text-slate-600">YouTube限定公開で「あの説明もう一度」が叶う</p>
+          </div>
+        </div>
+      </div>
+      <div class="ph">📷 [画面: 保護者ポータル ダッシュボード]</div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 10: Lesson report -->
+  <section class="slide">
+    <span class="slide-tag">保護者ポータル 機能 1/3</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">授業報告書</h2>
+    <p class="text-slate-500 mb-8">毎回の授業がきちんと「残る」。家庭学習の参考にも、振り返りにも。</p>
+    <div class="grid grid-cols-5 gap-6 flex-1">
+      <div class="col-span-3 ph">📷 [画面: 授業報告書ページ — 授業内容/宿題/次回予定]</div>
+      <div class="col-span-2 flex flex-col justify-center space-y-5">
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">講師が授業直後に作成</p>
+          <p class="text-sm text-slate-600 leading-7">習った範囲・できた所・課題・宿題が箇条書きで届く。</p>
+        </div>
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">過去の報告書を一覧で参照</p>
+          <p class="text-sm text-slate-600 leading-7">「2ヶ月前のあの単元」が必要な時もすぐ取り出せる。</p>
+        </div>
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">公開リンクで家族にも共有</p>
+          <p class="text-sm text-slate-600 leading-7">祖父母にも見てもらえる限定公開URL対応。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 11: Schedule & balance -->
+  <section class="slide">
+    <span class="slide-tag">保護者ポータル 機能 2/3</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">スケジュール・残回数</h2>
+    <p class="text-slate-500 mb-8">「次はいつ?」「あと何回?」を、保護者が自分で確認できる。</p>
+    <div class="grid grid-cols-5 gap-6 flex-1">
+      <div class="col-span-2 flex flex-col justify-center space-y-5">
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">12回 / 24回 コース対応</p>
+          <p class="text-sm text-slate-600 leading-7">契約した授業数の消化状況が常に最新。</p>
+        </div>
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">継続意思の確認</p>
+          <p class="text-sm text-slate-600 leading-7">残数が少なくなったら更新意思を保護者ポータル上で表明。</p>
+        </div>
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">予定の可視化</p>
+          <p class="text-sm text-slate-600 leading-7">次回授業予定を一覧表示。家族の予定との調整がしやすい。</p>
+        </div>
+      </div>
+      <div class="col-span-3 ph">📷 [画面: スケジュール + 残回数 ダッシュボード]</div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 12: LINE -->
+  <section class="slide">
+    <span class="slide-tag">保護者ポータル 機能 3/3</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">LINE 通知連携</h2>
+    <p class="text-slate-500 mb-8">「アプリを毎回開く」が必要ない。普段のLINEに必要な情報が届く。</p>
+    <div class="grid grid-cols-5 gap-6 flex-1">
+      <div class="col-span-3 ph">📷 [画面: LINEメッセージのスクリーンショット — 授業報告/お知らせ通知]</div>
+      <div class="col-span-2 flex flex-col justify-center space-y-5">
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">授業報告がLINEに届く</p>
+          <p class="text-sm text-slate-600 leading-7">講師が報告を送信すると、リンク付きでLINEに通知。</p>
+        </div>
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">お知らせ配信</p>
+          <p class="text-sm text-slate-600 leading-7">休講・キャンペーン・面談案内などをLINE経由で。</p>
+        </div>
+        <div class="accent-bar-violet">
+          <p class="font-bold text-slate-900 mb-1">既読状況も把握</p>
+          <p class="text-sm text-slate-600 leading-7">重要なお知らせが届いたか、運営側で確認できる仕組み。</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 13: Integration flow -->
+  <section class="slide">
+    <span class="slide-tag">INTEGRATION</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">2つのシステムが連携する強み</h2>
+    <p class="text-slate-500 mb-8">先生 → 保護者 → 子ども が、ひとつの流れに。</p>
+    <div class="flex-1 flex items-center">
+      <div class="grid grid-cols-3 gap-6 w-full">
+        <div class="rounded-2xl border border-slate-200 p-6 text-center">
+          <div class="w-14 h-14 rounded-full bg-slate-100 mx-auto flex items-center justify-center text-2xl mb-3">👩‍🏫</div>
+          <p class="text-xs text-slate-500 mb-2">STEP 1</p>
+          <p class="font-bold text-slate-900 mb-3">講師が授業</p>
+          <p class="text-sm text-slate-600">Zoomで1on1指導。授業録画 → 自動アップロード。</p>
+        </div>
+        <div class="rounded-2xl border border-slate-200 p-6 text-center bg-slate-50">
+          <div class="w-14 h-14 rounded-full bg-slate-100 mx-auto flex items-center justify-center text-2xl mb-3">📚</div>
+          <p class="text-xs text-slate-500 mb-2">STEP 2</p>
+          <p class="font-bold text-slate-900 mb-3">保護者ポータルへ反映</p>
+          <p class="text-sm text-slate-600">報告書・録画・残回数が更新。LINEで保護者へ通知。</p>
+        </div>
+        <div class="rounded-2xl border border-amber-300 p-6 text-center bg-amber-50/40">
+          <div class="w-14 h-14 rounded-full bg-amber-100 mx-auto flex items-center justify-center text-2xl mb-3">⚔️</div>
+          <p class="text-xs text-amber-700 mb-2">STEP 3</p>
+          <p class="font-bold text-slate-900 mb-3">EdenQuestで自走</p>
+          <p class="text-sm text-slate-600">指示された単元を子どもがアプリで学習。進捗が次回授業へ。</p>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-sm text-slate-500 mt-6">→ 保護者は何もしなくても、毎日の学習が自然に進む流れができる。</p>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 14: Demo video -->
+  <section class="slide">
+    <span class="slide-tag">DEMO</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">動画で見るEdenQuest</h2>
+    <p class="text-slate-500 mb-8">実際の画面操作を約2分でご紹介します。</p>
+    <div class="flex-1 flex items-center justify-center">
+      <div class="w-full max-w-3xl aspect-video rounded-2xl overflow-hidden bg-slate-900 relative">
+        <!-- Mux Player 埋め込み (PLAYBACK_ID を実 ID に差し替え) -->
+        <!-- 例: <iframe src="https://player.mux.com/PLAYBACK_ID?primary-color=%23d97706" allowfullscreen class="w-full h-full"></iframe> -->
+        <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-300">
+          <div class="text-5xl mb-3">▶️</div>
+          <p class="text-sm">[Mux 動画埋め込み枠]</p>
+          <p class="text-xs text-slate-500 mt-2">差し替え: <code>&lt;iframe src="https://player.mux.com/{PLAYBACK_ID}"&gt;</code></p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 15: Pricing -->
+  <section class="slide">
+    <span class="slide-tag">PRICING</span>
+    <h2 class="text-3xl font-bold text-slate-900 mb-2">料金プラン</h2>
+    <p class="text-slate-500 mb-8">EdenQuest と 保護者ポータル の利用料は、家庭教師契約に込み。追加費用なし。</p>
+    <div class="grid grid-cols-2 gap-6 flex-1">
+      <div class="rounded-2xl border border-slate-200 p-8 flex flex-col">
+        <p class="text-sm tracking-wide text-slate-500 mb-2">PLAN A</p>
+        <h3 class="font-bold text-slate-900 text-2xl mb-1">12回コース</h3>
+        <p class="text-sm text-slate-500 mb-6">3ヶ月の継続を目安に</p>
+        <ul class="space-y-2 text-sm text-slate-700 flex-1">
+          <li>✓ 週1回 / 60分のZoom指導</li>
+          <li>✓ 授業録画の自動配信</li>
+          <li>✓ EdenQuest 学習アプリ 込み</li>
+          <li>✓ 保護者ポータル 込み</li>
+          <li>✓ LINE 連絡サポート</li>
+        </ul>
+        <p class="mt-6 pt-6 border-t border-slate-100 text-sm text-slate-500">※ 詳細料金は個別ご案内</p>
+      </div>
+      <div class="rounded-2xl border-2 border-amber-300 p-8 flex flex-col bg-amber-50/30 relative">
+        <span class="absolute top-4 right-4 text-xs bg-amber-500 text-white px-3 py-1 rounded-full font-bold">おすすめ</span>
+        <p class="text-sm tracking-wide text-amber-700 mb-2">PLAN B</p>
+        <h3 class="font-bold text-slate-900 text-2xl mb-1">24回コース</h3>
+        <p class="text-sm text-slate-500 mb-6">受験までの本格指導に</p>
+        <ul class="space-y-2 text-sm text-slate-700 flex-1">
+          <li>✓ 週1〜2回の柔軟な日程</li>
+          <li>✓ 授業録画 + 過去問添削</li>
+          <li>✓ EdenQuest 学習アプリ 込み</li>
+          <li>✓ 保護者ポータル 込み</li>
+          <li>✓ LINE 連絡サポート</li>
+          <li>✓ 学習計画の月次見直し</li>
+        </ul>
+        <p class="mt-6 pt-6 border-t border-amber-200 text-sm text-slate-500">※ 詳細料金は個別ご案内</p>
+      </div>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+  <!-- Slide 16: CTA -->
+  <section class="slide">
+    <div class="flex-1 flex flex-col justify-center items-center text-center">
+      <span class="slide-tag">CONTACT</span>
+      <h2 class="text-5xl font-bold text-slate-900 mb-6 leading-tight">まずは、ご相談ください。</h2>
+      <p class="text-lg text-slate-600 mb-12 max-w-2xl leading-relaxed">
+        教科・志望校・現在の成績に応じた具体的なカリキュラムを<br>
+        無料の個別カウンセリングでご提案します。
+      </p>
+      <div class="grid grid-cols-3 gap-6 w-full max-w-3xl">
+        <div class="rounded-xl border border-slate-200 p-5">
+          <p class="text-xs text-slate-500 mb-1">EMAIL</p>
+          <p class="font-bold text-slate-900 text-sm">contact@example.com</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-5">
+          <p class="text-xs text-slate-500 mb-1">LINE</p>
+          <p class="font-bold text-slate-900 text-sm">@eden-juku</p>
+        </div>
+        <div class="rounded-xl border border-slate-200 p-5">
+          <p class="text-xs text-slate-500 mb-1">WEB</p>
+          <p class="font-bold text-slate-900 text-sm">eden-juku.com</p>
+        </div>
+      </div>
+      <p class="mt-12 text-xs text-slate-400">家庭教師Eden / 2026年版</p>
+    </div>
+    <div class="slide-num"></div>
+  </section>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+  <button id="prev" aria-label="前のスライド">←</button>
+  <span id="counter">1 / 16</span>
+  <button id="next" aria-label="次のスライド">→</button>
+  <span class="ml-3 text-xs text-slate-400">ESC: 目次</span>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc" id="toc">
+  <div class="toc-grid" id="tocGrid"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  const counter = document.getElementById('counter');
+  const toc = document.getElementById('toc');
+  const tocGrid = document.getElementById('tocGrid');
+  let current = 0;
+
+  const titles = [
+    "表紙",
+    "こんな不安、ありませんか?",
+    "Eden 3つの柱",
+    "EdenQuest 概要",
+    "EdenQuest: クエスト型レッスン",
+    "EdenQuest: デジタル教科書",
+    "EdenQuest: ペット育成",
+    "EdenQuest: 復習・反復",
+    "保護者ポータル 概要",
+    "保護者ポータル: 授業報告書",
+    "保護者ポータル: スケジュール",
+    "保護者ポータル: LINE通知",
+    "2システム連携の強み",
+    "デモ動画",
+    "料金プラン",
+    "お問い合わせ"
+  ];
+
+  function show(n) {
+    current = (n + total) % total;
+    slides.forEach((s, i) => s.classList.toggle('active', i === current));
+    counter.textContent = `${current + 1} / ${total}`;
+    document.querySelectorAll('.slide-num').forEach((el, i) => {
+      if (i === current) el.textContent = `${i + 1} / ${total}`;
+    });
+  }
+
+  function buildToc() {
+    tocGrid.innerHTML = titles.map((t, i) => `
+      <div class="toc-item" data-i="${i}">
+        <span class="n">${String(i + 1).padStart(2, '0')}</span>
+        <p class="font-bold mt-1">${t}</p>
+      </div>
+    `).join('');
+    tocGrid.querySelectorAll('.toc-item').forEach(el => {
+      el.addEventListener('click', () => {
+        show(parseInt(el.dataset.i));
+        toc.classList.remove('open');
+      });
+    });
+  }
+
+  document.getElementById('prev').addEventListener('click', () => show(current - 1));
+  document.getElementById('next').addEventListener('click', () => show(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { show(current + 1); e.preventDefault(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { show(current - 1); e.preventDefault(); }
+    else if (e.key === 'Escape') { toc.classList.toggle('open'); }
+    else if (e.key === 'Home') { show(0); }
+    else if (e.key === 'End') { show(total - 1); }
+  });
+
+  buildToc();
+  show(0);
+</script>
+
+</body>
+</html>
