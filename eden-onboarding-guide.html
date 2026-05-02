@@ -251,7 +251,7 @@
       <nav id="toc" class="space-y-0.5">
         <a class="toc-link" href="#intro">はじめに</a>
         <p class="text-xs font-bold text-violet-700 mt-5 mb-2 px-3 tracking-widest">PART 1 保護者ポータル</p>
-        <a class="toc-link" href="#portal-login">1.1 ログインと初期設定</a>
+        <a class="toc-link" href="#portal-login">1.1 アカウント作成とログイン</a>
         <a class="toc-link" href="#portal-dashboard">1.2 ダッシュボードの見方</a>
         <a class="toc-link" href="#portal-report">1.3 授業報告書を見る</a>
         <a class="toc-link" href="#portal-balance">1.4 残回数・予定の確認</a>
@@ -259,9 +259,10 @@
         <a class="toc-link" href="#portal-contact">1.6 講師・運営との連絡</a>
 
         <p class="text-xs font-bold text-amber-700 mt-5 mb-2 px-3 tracking-widest">PART 2 EdenQuest 設定</p>
-        <a class="toc-link" href="#quest-invite">2.1 お子様アカウントの発行</a>
-        <a class="toc-link" href="#quest-signin">2.2 サインインと初回起動</a>
+        <a class="toc-link" href="#quest-signin">2.1 EdenQuestにログインする</a>
+        <a class="toc-link" href="#quest-opening">2.2 オープニングと初回起動</a>
         <a class="toc-link" href="#quest-pet">2.3 ペット作成</a>
+        <a class="toc-link" href="#quest-siblings">2.4 ご兄弟・双子のご家庭へ</a>
 
         <p class="text-xs font-bold text-amber-700 mt-5 mb-2 px-3 tracking-widest">PART 3 EdenQuest 活用</p>
         <a class="toc-link" href="#daily-quest">3.1 クエストを進める</a>
@@ -299,10 +300,37 @@
           <p class="text-sm text-slate-600 leading-7">クエスト型の学習アプリ。教科書・問題・復習・ペット育成。<strong>お子様</strong>がお使いになります。</p>
         </div>
       </div>
+
+      <h3 class="sub mt-10">ご契約コースによって使えるサービスが異なります</h3>
+      <div class="grid sm:grid-cols-2 gap-4 mt-4">
+        <div class="border border-amber-300 rounded-xl p-5 bg-amber-50">
+          <p class="text-[11px] tracking-widest text-amber-700 font-bold mb-1">VIPマスター</p>
+          <p class="font-bold text-slate-900">24回コース・6ヶ月</p>
+          <ul class="mt-3 space-y-1.5 text-sm text-slate-700">
+            <li>✓ Eden 保護者ポータル</li>
+            <li>✓ <strong>EdenQuest 学習アプリ</strong></li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-500 leading-relaxed">
+            本ガイドの全章 (PART 1〜4) をご活用いただけます。
+          </p>
+        </div>
+        <div class="border border-slate-200 rounded-xl p-5 bg-white">
+          <p class="text-[11px] tracking-widest text-slate-500 font-bold mb-1">スタートダッシュ</p>
+          <p class="font-bold text-slate-900">12回コース・3ヶ月</p>
+          <ul class="mt-3 space-y-1.5 text-sm text-slate-700">
+            <li>✓ Eden 保護者ポータル</li>
+            <li class="text-slate-400">— EdenQuest は対象外</li>
+          </ul>
+          <p class="mt-3 text-xs text-slate-500 leading-relaxed">
+            主に PART 1 (保護者ポータル) と PART 4 (サポート) をご覧ください。
+          </p>
+        </div>
+      </div>
+
       <div class="callout mt-6">
         <p class="text-sm text-slate-700 leading-7">
-          <strong>所要時間の目安:</strong> 初期設定はパート1〜2まで合わせて 約20分。
-          パート3 (日々の使い方) は必要なときに見返すリファレンスとしてご活用ください。
+          <strong>所要時間の目安:</strong> アカウント作成は 約2分、初期設定は PART 1〜2 まで合わせて 約20分。
+          PART 3 (日々の使い方) は必要なときに見返すリファレンスとしてご活用ください。
         </p>
       </div>
     </section>
@@ -313,37 +341,80 @@
       <h2 class="section mt-3">Eden 保護者ポータル</h2>
       <p class="body-text">保護者の方が普段ご利用になるポータル画面の使い方を、機能ごとにご紹介します。</p>
 
-      <h3 class="sub" id="portal-login">1.1 ログインと初期設定</h3>
+      <h3 class="sub" id="portal-login">1.1 アカウント作成とログイン</h3>
       <p class="body-text">
-        ご契約完了後、登録メールアドレス宛に <strong>初回ログイン用のメール</strong> が届きます。
-        記載のリンクからアクセスし、パスワードを設定してください。
+        ご契約後、保護者の方ご自身に <strong>Eden 保護者ポータル</strong> でアカウントを作成していただきます。
+        所要時間は約2分です。<strong>招待メールは送られません</strong>のでご注意ください。
       </p>
-      <div class="ph mt-5"><span><span class="ph-label">📷 [画面: 初回ログインメール]</span><br>件名「Eden 保護者ポータル ご招待」</span></div>
+      <figure class="mt-5">
+        <img src="onb-step1-login.png" alt="保護者ポータル ログイン画面" class="w-full rounded-xl border border-slate-200 shadow-sm bg-white">
+        <figcaption class="text-xs text-slate-500 mt-2 text-center">画面: 保護者ポータル ログイン画面 (画面下部「アカウントをお持ちでない方は新規登録」を押下)</figcaption>
+      </figure>
+
       <div class="step-card mt-6">
         <div class="step-num">1</div>
         <div>
-          <p class="font-bold text-slate-900 mb-1">メール内のリンクをクリック</p>
-          <p class="text-sm text-slate-600">招待メール本文の「ログインはこちら」ボタンを押下します。</p>
+          <p class="font-bold text-slate-900 mb-1">ログイン画面を開く</p>
+          <p class="text-sm text-slate-600">
+            <code>https://edenteacher.vercel.app/login</code> をブラウザで開き、画面下部の「<strong>アカウントをお持ちでない方は新規登録</strong>」を押します。
+          </p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div>
-          <p class="font-bold text-slate-900 mb-1">パスワードを設定</p>
-          <p class="text-sm text-slate-600">8文字以上の英数字混合をおすすめします。</p>
+          <p class="font-bold text-slate-900 mb-1">アカウント種別「保護者」を選択</p>
+          <p class="text-sm text-slate-600">「保護者」「先生」の2択が表示されますので、保護者の方は <strong>「保護者」</strong> を選択してください。</p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <div>
-          <p class="font-bold text-slate-900 mb-1">プロフィール情報の入力</p>
-          <p class="text-sm text-slate-600">お子様のお名前・学年・志望校 (任意) をご記入ください。後から変更可能です。</p>
+          <p class="font-bold text-slate-900 mb-1">必要事項を入力</p>
+          <p class="text-sm text-slate-600 leading-7">
+            <strong>氏名 / 電話番号 / メールアドレス / パスワード (6文字以上)</strong> を入力します。<br>
+            電話番号はハイフンなし・半角数字のみ。アカウント復旧時の本人確認に使用します。
+          </p>
         </div>
       </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div>
+          <p class="font-bold text-slate-900 mb-1">ご契約のコースを選択</p>
+          <p class="text-sm text-slate-600 leading-7">
+            <strong>VIPマスター (24回コース)</strong> または <strong>スタートダッシュ (12回コース)</strong> から、ご契約のコースを選んでください。
+            VIPマスターを選択された場合のみ、同じメールアドレスとパスワードで <strong>EdenQuest</strong> にもログインできるようになります。
+          </p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div>
+          <p class="font-bold text-slate-900 mb-1">「アカウント作成」を押すと完了</p>
+          <p class="text-sm text-slate-600">作成後は自動的にログインされ、ダッシュボードが表示されます。メール確認は不要です。</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4 mt-8">
+        <figure>
+          <img src="onb-step2-signup.png" alt="新規登録フォーム" class="w-full rounded-xl border border-slate-200 shadow-sm bg-white">
+          <figcaption class="text-xs text-slate-500 mt-2 text-center">画面: 新規登録フォーム (アカウント種別「保護者」+ コース選択)</figcaption>
+        </figure>
+        <figure>
+          <img src="onb-step3-dashboard.png" alt="保護者ポータル ダッシュボード" class="w-full rounded-xl border border-slate-200 shadow-sm bg-white">
+          <figcaption class="text-xs text-slate-500 mt-2 text-center">画面: 作成完了直後のダッシュボード (上部に EdenQuest を開くバナー)</figcaption>
+        </figure>
+      </div>
+
       <div class="callout violet mt-6">
         <p class="text-sm text-slate-700 leading-7">
           <strong>2回目以降のログインURL:</strong>
           <code>https://edenteacher.vercel.app/login</code> をブックマークしておくと便利です。
+        </p>
+      </div>
+      <div class="callout warning mt-4">
+        <p class="text-sm text-slate-700 leading-7">
+          <strong>コース選択を間違えてしまったら:</strong> 後からの変更も可能です。LINE 公式アカウント「合格プロジェクト」までご連絡ください。運営側でコースを切り替えます。
         </p>
       </div>
 
@@ -407,11 +478,12 @@
 
       <h3 class="sub" id="portal-contact">1.6 講師・運営との連絡</h3>
       <p class="body-text">
-        日程変更のご相談・指導内容のご要望など、講師や運営事務局へのご連絡は、ポータル右上の <strong>「お問い合わせ」</strong> ボタンから送信できます。
+        日程変更のご相談・指導内容のご要望など、講師や運営事務局へのご連絡は、すべて <strong>LINE 公式アカウント「合格プロジェクト」</strong> で承っております。
+        ポータル内にお問い合わせフォームはございません。
       </p>
       <div class="callout violet mt-5">
         <p class="text-sm text-slate-700 leading-7">
-          <strong>緊急の日程変更:</strong> 当日キャンセルなど急ぎのご連絡は、LINEからの返信が最も早く確認できます。
+          <strong>緊急の日程変更:</strong> 当日キャンセルなど急ぎのご連絡も LINE が最速です。1.5 のLINE連携が完了していれば、ポータル通知も同じ LINE で受け取れます。
         </p>
       </div>
     </section>
@@ -420,46 +492,79 @@
     <section id="part-quest" class="pt-4">
       <span class="section-tag tag-quest">PART 2</span>
       <h2 class="section mt-3">EdenQuest の初期設定</h2>
-      <p class="body-text">お子様用の学習アプリ「EdenQuest」を使い始めるまでの手順です。最初に1回だけ行えば、以降は普通にログインしてご利用いただけます。</p>
-
-      <h3 class="sub" id="quest-invite">2.1 お子様アカウントの発行</h3>
       <p class="body-text">
-        保護者ポータルから、お子様用の <strong>EdenQuest招待リンク</strong> を発行します。
+        学習アプリ「EdenQuest」を使い始めるまでの手順です。
+        <strong>VIPマスター (24回コース)</strong> をご契約の方が対象です。
+        スタートダッシュ (12回コース) の方は EdenQuest はご利用対象外ですので、PART 1・PART 4 のみご参照ください。
+      </p>
+
+      <div class="callout violet mt-5">
+        <p class="text-sm text-slate-700 leading-7">
+          <strong>大切なポイント — 1家族 = 1アカウント運用:</strong><br>
+          EdenQuest 用に新しいアカウントを作る必要はありません。
+          PART 1 で作成した<strong>保護者アカウント</strong>に、お子様がそのままログインしてお使いいただきます。
+          進捗・XP・ペットはこの 1 アカウントに紐づいて記録されます。
+        </p>
+      </div>
+
+      <h3 class="sub" id="quest-signin">2.1 EdenQuest にログインする</h3>
+      <p class="body-text">
+        VIPマスターを選んで保護者ポータルでアカウントを作成された時点で、EdenQuest 側にも<strong>同じメールアドレス・同じパスワード</strong>でアカウントが用意されています。
+        お子様の端末 (iPad / PC) で次の手順でログインしてください。
       </p>
       <div class="step-card mt-5">
         <div class="step-num">1</div>
         <div>
-          <p class="font-bold text-slate-900 mb-1">ポータルの「EdenQuest招待」を開く</p>
-          <p class="text-sm text-slate-600">左メニュー → 「お子様アカウント」 → 「EdenQuestを招待」</p>
+          <p class="font-bold text-slate-900 mb-1">EdenQuest を開く</p>
+          <p class="text-sm text-slate-600">
+            <code>https://edenquest.vercel.app/login</code> をお子様の端末で開きます。<br>
+            「冒険の書を開く」画面が表示されます。
+          </p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
         <div>
-          <p class="font-bold text-slate-900 mb-1">お子様用のメールアドレスを入力</p>
-          <p class="text-sm text-slate-600">お子様用のアドレスがない場合は <strong>保護者アドレス + suffix</strong> (例: parent+kid@example.com) もご利用いただけます。</p>
+          <p class="font-bold text-slate-900 mb-1">保護者と同じメールアドレスを入力</p>
+          <p class="text-sm text-slate-600">
+            保護者ポータルで登録したメールアドレスをそのまま入力し、「次へ」を押します。
+          </p>
         </div>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
         <div>
-          <p class="font-bold text-slate-900 mb-1">招待リンクを共有</p>
-          <p class="text-sm text-slate-600">発行された招待URLをお子様の端末 (iPad / PC) で開いてください。</p>
+          <p class="font-bold text-slate-900 mb-1">パスワードを入力してログイン</p>
+          <p class="text-sm text-slate-600">
+            保護者ポータルと同じパスワードでログインできます。お子様用の別パスワードを作る必要はありません。
+          </p>
         </div>
       </div>
-      <div class="ph mt-6"><span><span class="ph-label">📷 [画面: ポータルから EdenQuest 招待発行画面]</span></span></div>
+      <figure class="mt-6">
+        <img src="onb-step4-edenquest-landing.png" alt="EdenQuest ランディング画面" class="w-full rounded-xl border border-slate-200 shadow-sm">
+        <figcaption class="text-xs text-slate-500 mt-2 text-center">画面: EdenQuest トップ画面 (右上または中央の「冒険の書を開く」からログイン)</figcaption>
+      </figure>
 
-      <h3 class="sub" id="quest-signin">2.2 サインインと初回起動</h3>
-      <p class="body-text">
-        招待URLを開くと、EdenQuestのサインアップ画面が表示されます。お子様にパスワードを設定してもらい、ログインしてください。
-      </p>
-      <div class="grid sm:grid-cols-2 gap-4 mt-5">
-        <div class="ph"><span><span class="ph-label">📷 [画面: EdenQuest サインアップ]</span></span></div>
-        <div class="ph"><span><span class="ph-label">📷 [画面: オープニング演出]</span></span></div>
+      <div class="callout warning mt-6">
+        <p class="text-sm text-slate-700 leading-7">
+          <strong>「Eden 保護者ポータルで登録してください」と表示された場合:</strong><br>
+          EdenQuest 側にアカウントがまだ存在しません。次のいずれかが原因です。
+        </p>
+        <ul class="mt-2 ml-5 list-disc text-sm text-slate-700 leading-7">
+          <li>保護者ポータルのアカウント作成時に <strong>スタートダッシュ (12回コース)</strong> を選択した</li>
+          <li>そもそもまだ保護者ポータルでアカウントを作成していない</li>
+        </ul>
+        <p class="mt-2 text-sm text-slate-700 leading-7">
+          コースを VIPマスターに切り替えたい場合は、LINE 公式アカウント「合格プロジェクト」までご連絡ください。
+        </p>
       </div>
-      <p class="body-text mt-5">
-        初回起動時には、<strong>世界観の紹介オープニング</strong> が再生されます。スキップも可能ですが、お子様の興味を引くため最初の1回はぜひご一緒にご覧ください。
+
+      <h3 class="sub" id="quest-opening">2.2 オープニングと初回起動</h3>
+      <p class="body-text">
+        初回ログイン時には、<strong>世界観の紹介オープニング</strong> が再生されます。
+        スキップも可能ですが、お子様の興味を引くため最初の1回はぜひご一緒にご覧ください。
       </p>
+      <div class="ph mt-5"><span><span class="ph-label">📷 [画面: オープニング演出]</span></span></div>
 
       <h3 class="sub" id="quest-pet">2.3 ペット作成</h3>
       <p class="body-text">
@@ -469,6 +574,36 @@
       <div class="callout mt-6">
         <p class="text-sm text-slate-700 leading-7">
           <strong>ヒント:</strong> ペットは一度作成すると種族の変更ができません。お子様にじっくり選んでもらうことで、愛着が深まり継続学習につながります。
+        </p>
+      </div>
+
+      <h3 class="sub" id="quest-siblings">2.4 ご兄弟・双子で 2 人以上ご受講のご家庭へ</h3>
+      <p class="body-text">
+        EdenQuest は 1 アカウントにつきお子様 1 人分の進捗・XP・ペットを管理します。
+        ご兄弟で同時にご利用される場合は、<strong>お子様 1 人ごとに保護者アカウントを別途お作りください</strong>。
+      </p>
+
+      <h4 class="font-bold text-slate-900 mt-6 mb-2">Gmail サブアドレスを使う運用がおすすめです</h4>
+      <p class="body-text">
+        実体は同じメールアドレス <code>parent@gmail.com</code> のままで、登録上だけ別アドレスにできる機能です。
+        Gmail / iCloud / Outlook 等の主要メールサービスで対応しています。
+      </p>
+      <div class="border border-amber-200 rounded-xl p-5 bg-amber-50/40 mt-4">
+        <p class="text-sm text-slate-700 leading-7">
+          例えば <code>parent@gmail.com</code> をお持ちの場合、Eden の登録時には次のように使い分けます:
+        </p>
+        <ul class="mt-2 ml-5 list-disc text-sm text-slate-700 leading-7">
+          <li>太郎くん用: <code>parent+taro@gmail.com</code></li>
+          <li>花子さん用: <code>parent+hanako@gmail.com</code></li>
+        </ul>
+        <p class="mt-2 text-sm text-slate-700 leading-7">
+          どちらに送られたメールも <code>parent@gmail.com</code> の受信箱に届くため、保護者の方の管理は1つの受信箱で完結します。
+        </p>
+      </div>
+
+      <div class="callout mt-6">
+        <p class="text-sm text-slate-700 leading-7">
+          <strong>ログインの切り替え:</strong> お子様ごとにアカウントを分けた場合、EdenQuest を別のお子様のアカウントで使うときは一度ログアウトしてから、もう一方のメールアドレスで再ログインしてください。
         </p>
       </div>
     </section>
@@ -545,22 +680,6 @@
       </p>
     </section>
 
-    <!-- Demo Video -->
-    <section class="pt-4">
-      <span class="section-tag tag-common">DEMO VIDEO</span>
-      <h2 class="section mt-3">操作の流れを動画で見る</h2>
-      <p class="body-text">主要な操作の流れを 約3分 にまとめた動画です。お子様と一緒にご覧いただくと、初日のスタートがスムーズになります。</p>
-      <div class="mt-6 aspect-video rounded-2xl overflow-hidden bg-slate-900 relative">
-        <!-- Mux Player 埋め込み (PLAYBACK_ID を実 ID に差し替え) -->
-        <!-- <iframe src="https://player.mux.com/PLAYBACK_ID?primary-color=%237c3aed" allowfullscreen class="w-full h-full"></iframe> -->
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-slate-300">
-          <div class="text-5xl mb-3">▶️</div>
-          <p class="text-sm">[Mux 動画埋め込み枠]</p>
-          <p class="text-xs text-slate-500 mt-2 px-4 text-center">差し替え方法: <code class="bg-slate-800 px-2 py-1 rounded text-violet-300">&lt;iframe src="https://player.mux.com/{PLAYBACK_ID}"&gt;</code></p>
-        </div>
-      </div>
-    </section>
-
     <!-- PART 4: Troubleshooting -->
     <section id="part-trouble" class="pt-4">
       <span class="section-tag tag-common">PART 4</span>
@@ -574,7 +693,7 @@
             <span class="text-violet-600">Q.</span> パスワードを忘れてしまいました
           </summary>
           <p class="mt-3 text-sm text-slate-600 leading-7">
-            ログイン画面の「パスワードを忘れた方」リンクから、登録メールアドレスにパスワード再設定メールをお送りします。メールが届かない場合は迷惑メールフォルダもご確認ください。
+            現在パスワードの自助リセットには対応していません。<strong>LINE 公式アカウント「合格プロジェクト」</strong>でご連絡いただければ、運営側でパスワードを再設定し、新しいパスワードを LINE でお伝えします。保護者ポータル・EdenQuest どちらの場合も同じ手順です。
           </p>
         </details>
 
@@ -583,7 +702,18 @@
             <span class="text-violet-600">Q.</span> お子様がEdenQuestにログインできない
           </summary>
           <p class="mt-3 text-sm text-slate-600 leading-7">
-            まず<strong>メールアドレスとパスワードのスペル</strong>をご確認ください。それでもログインできない場合は、保護者ポータルから「お子様アカウント」 → 「パスワード再設定」を実行してください。
+            まず<strong>メールアドレスとパスワードのスペル</strong>をご確認ください (保護者ポータルと同じものを使います)。
+            「Eden 保護者ポータルで登録してください」と表示される場合は、ご契約コースが <strong>スタートダッシュ (12回コース)</strong> の可能性があります。EdenQuest をご利用希望の場合は LINE 公式「合格プロジェクト」までご連絡ください。
+            それでもログインできない場合は、同じく LINE までご連絡いただければパスワードを再設定いたします。
+          </p>
+        </details>
+
+        <details class="border border-slate-200 rounded-xl bg-white p-5 group">
+          <summary class="font-bold text-slate-900 cursor-pointer flex items-center gap-2">
+            <span class="text-violet-600">Q.</span> ご契約後、招待メールが届きません
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 leading-7">
+            Eden では<strong>招待メールはお送りしておりません</strong>。保護者の方ご自身に <code>edenteacher.vercel.app/login</code> から「新規登録」でアカウントを作成していただく運用です。詳しくは PART 1.1 をご覧ください。
           </p>
         </details>
 
