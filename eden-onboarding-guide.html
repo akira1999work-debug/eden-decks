@@ -254,7 +254,7 @@
         <a class="toc-link" href="#portal-login">1.1 アカウント作成とログイン</a>
         <a class="toc-link" href="#portal-dashboard">1.2 ダッシュボードの見方</a>
         <a class="toc-link" href="#portal-report">1.3 授業報告書を見る</a>
-        <a class="toc-link" href="#portal-balance">1.4 残回数・予定の確認</a>
+        <a class="toc-link" href="#portal-balance">1.4 残回数の確認</a>
         <a class="toc-link" href="#portal-line">1.5 LINE連携の設定</a>
         <a class="toc-link" href="#portal-contact">1.6 講師・運営との連絡</a>
 
@@ -420,33 +420,51 @@
 
       <h3 class="sub" id="portal-dashboard">1.2 ダッシュボードの見方</h3>
       <p class="body-text">
-        ログイン後、<strong>ダッシュボード</strong>には次回授業・残回数・最新の授業報告書が一覧で表示されます。
+        ログイン後の <strong>ダッシュボード</strong> には、お子様ごとに 1 枚のカードが並びます。
+        各カードには、その子の最新状況がひと目でわかるよう以下の情報がまとまっています。
       </p>
-      <div class="ph tall mt-5"><span><span class="ph-label">📷 [画面: ポータル ダッシュボード]</span><br>左: 次回授業予定 / 中央: 残回数ゲージ / 右: 最新の授業報告書</span></div>
+      <ul class="mt-3 ml-6 list-disc body-text space-y-1">
+        <li>お子様の写真と担当先生の写真</li>
+        <li>ご契約コース名と <strong>残り回数</strong> (例: 残り 22 / 24 回)</li>
+        <li><strong>次回授業</strong> の日付・時刻 (定期コマから自動算出)</li>
+        <li><strong>直近の授業日</strong> と授業タイトル</li>
+        <li>次回までの宿題</li>
+        <li>過去の授業報告書一覧 (アコーディオンで展開)</li>
+      </ul>
+      <p class="body-text mt-4">
+        VIPマスター (24回コース) の方は、ダッシュボード上部に「<strong>EdenQuest を開く</strong>」バナーも表示されます。
+      </p>
 
       <h3 class="sub" id="portal-report">1.3 授業報告書を見る</h3>
       <p class="body-text">
-        毎回の授業終了後、講師が <strong>30分以内</strong> を目安に授業報告書を作成します。<br>
-        作成完了するとLINEで通知が届きます (LINE連携済みの場合)。
+        毎回の授業終了後、講師が授業報告書を作成します。
+        作成完了すると LINE で通知が届き、タップすると<strong>教科ごとの指導内容・宿題・次回予定・授業録画</strong>まで1ページで確認できます。
       </p>
-      <div class="grid sm:grid-cols-2 gap-4 mt-5">
-        <div class="ph"><span><span class="ph-label">📷 [画面: 報告書一覧]</span><br>授業日順で並ぶ</span></div>
-        <div class="ph"><span><span class="ph-label">📷 [画面: 報告書 詳細]</span><br>授業内容・宿題・次回テーマ</span></div>
-      </div>
-      <div class="callout mt-6">
-        <p class="text-sm text-slate-700 leading-7">
-          <strong>家族にも共有したい時:</strong> 報告書ページ右上の「共有リンクを発行」から限定公開URLを作成できます。祖父母やパートナーにLINEなどで共有可能です。
-        </p>
+      <div class="grid md:grid-cols-5 gap-6 items-start mt-6">
+        <div class="md:col-span-2">
+          <p class="text-[11px] text-slate-400 tracking-widest font-bold mb-2">① LINE通知</p>
+          <figure class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white">
+            <img src="./report-card.png" alt="LINE通知カード — 報告書アップロード" class="w-full h-auto block" loading="lazy">
+          </figure>
+          <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">残り回数も同時に表示。タップで報告書本体を表示。</p>
+        </div>
+        <div class="md:col-span-3">
+          <p class="text-[11px] text-slate-400 tracking-widest font-bold mb-2">② 報告書本体</p>
+          <figure class="rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-white max-h-[520px] overflow-y-auto">
+            <img src="./report-full.png" alt="授業報告書 本体 — 算数/国語の指導内容、宿題、授業録画" class="w-full h-auto block" loading="lazy">
+          </figure>
+          <p class="text-[11px] text-slate-500 mt-2 leading-relaxed">教科ごとの指導内容・宿題・次回テーマ・授業録画 (YouTube限定公開) が1ページに。</p>
+        </div>
       </div>
 
-      <h3 class="sub" id="portal-balance">1.4 残回数・予定の確認</h3>
+      <h3 class="sub" id="portal-balance">1.4 残回数の確認</h3>
       <p class="body-text">
-        ダッシュボードに常時表示される <strong>残回数ゲージ</strong> で、契約授業数の消化状況をご確認いただけます。
+        残り回数は、ダッシュボードのお子様カード内に「<strong>残り N / 全 N 回</strong>」として常時表示されます。
+        ポータルを開けばいつでも消化状況をご確認いただけます。
       </p>
-      <div class="ph mt-5"><span><span class="ph-label">📷 [画面: 残回数ゲージ + 次回〜数回先までの予定]</span></span></div>
-      <p class="body-text mt-5">
-        残回数が <strong>3回を切る</strong> と、ポータル上に「コース更新のご案内」が表示されます。
-        ご継続を希望される場合は「継続する」を、終了をお考えの場合は「検討中」を選択してください。
+      <p class="body-text mt-4">
+        残り回数が少なくなったタイミングで、担当の先生または運営からLINEにて<strong>継続のご相談</strong>をお送りいたします。
+        コース更新・退会のお手続きはすべてLINEで承っております。
       </p>
 
       <h3 class="sub" id="portal-line">1.5 LINE連携の設定</h3>
