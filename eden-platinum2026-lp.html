@@ -10,38 +10,44 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
   :root {
-    --quest-amber: #d97706;
-    --quest-amber-soft: #fef3c7;
-    --quest-amber-deep: #b45309;
-    --quest-violet: #7c3aed;
-    --quest-violet-soft: #ede9fe;
-    --quest-violet-deep: #6d28d9;
-    --gold: #b8860b;
-    --ink: #0f172a;
-    --line: #e2e8f0;
+    --quest-amber: #f0a868;
+    --quest-amber-soft: #fdeee0;
+    --quest-amber-deep: #c97b3f;
+    --quest-violet: #b48dd1;
+    --quest-violet-soft: #f3ecf8;
+    --quest-violet-deep: #8c63ad;
+    --rose: #e89aaa;
+    --rose-soft: #fce8ec;
+    --rose-deep: #c46d80;
+    --gold: #c9a961;
+    --ink: #3d3548;
+    --ink-soft: #6b6275;
+    --line: #ece5ee;
   }
   body {
     font-family: "Hiragino Sans", "Yu Gothic Medium", "Yu Gothic", sans-serif;
     color: var(--ink);
-    background: #f8fafc;
+    background: #fbf7f8;
     margin: 0;
+    font-feature-settings: "palt";
   }
   .serif { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; }
   html { scroll-behavior: smooth; }
 
   .gradient-text {
-    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    background: linear-gradient(135deg, var(--rose) 0%, var(--quest-violet) 60%, var(--quest-amber) 100%);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .crest {
     width: 56px; height: 56px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    border-radius: 18px;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--quest-violet) 100%);
     color: white;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 22px;
-    box-shadow: 0 8px 16px -8px rgba(124,58,237,0.4);
+    font-weight: 700; font-size: 22px;
+    box-shadow: 0 10px 24px -10px rgba(180,141,209,0.5);
+    letter-spacing: 0.02em;
   }
   .hero-bg {
     position: relative;
@@ -58,40 +64,41 @@
   }
   .vip-badge {
     display: inline-block;
-    padding: 4px 12px;
-    background: linear-gradient(135deg, #b45309 0%, #6d28d9 100%);
+    padding: 5px 14px;
+    background: linear-gradient(135deg, var(--rose) 0%, var(--quest-violet) 100%);
     color: white;
     font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.15em;
-    border-radius: 4px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    border-radius: 999px;
+    box-shadow: 0 4px 12px -4px rgba(180,141,209,0.4);
   }
   .section-tag {
     display: inline-block;
     font-size: 11px;
     letter-spacing: 0.2em;
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-weight: 600;
     text-transform: uppercase;
   }
-  .tag-issue { background: #fee2e2; color: #b91c1c; }
+  .tag-issue { background: var(--rose-soft); color: var(--rose-deep); }
   .tag-solution { background: var(--quest-violet-soft); color: var(--quest-violet-deep); }
   .tag-feature { background: var(--quest-amber-soft); color: var(--quest-amber-deep); }
-  .tag-vip { background: linear-gradient(135deg, #fef3c7 0%, #ede9fe 100%); color: var(--quest-amber-deep); border: 1px solid #fcd34d; }
-  .tag-price { background: #fef9c3; color: var(--gold); }
-  .tag-info { background: #e2e8f0; color: #475569; }
+  .tag-vip { background: linear-gradient(135deg, var(--quest-amber-soft) 0%, var(--rose-soft) 50%, var(--quest-violet-soft) 100%); color: var(--rose-deep); border: 1px solid #f5d6dc; }
+  .tag-price { background: #fdf3e7; color: var(--gold); }
+  .tag-info { background: #efeaf2; color: var(--ink-soft); }
 
   .check::before {
-    content: "✓";
+    content: "♡";
     display: inline-block;
     width: 22px; height: 22px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    background: linear-gradient(135deg, var(--rose) 0%, var(--quest-violet) 100%);
     color: white;
     text-align: center;
     line-height: 22px;
-    font-size: 13px;
+    font-size: 12px;
     margin-right: 12px;
     flex-shrink: 0;
     font-weight: 700;
@@ -99,27 +106,28 @@
 
   .price-old {
     text-decoration: line-through;
-    text-decoration-color: #cbd5e1;
+    text-decoration-color: #d6cdda;
     text-decoration-thickness: 2px;
-    color: #94a3b8;
+    color: #a89db0;
   }
 
   h2.section {
-    font-size: 36px; font-weight: 800;
+    font-size: 34px; font-weight: 700;
     color: var(--ink);
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-top: 12px;
-    margin-bottom: 12px;
+    letter-spacing: 0.01em;
+    line-height: 1.5;
+    margin-top: 14px;
+    margin-bottom: 14px;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
   }
   h3.feature {
-    font-size: 22px; font-weight: 800;
+    font-size: 22px; font-weight: 700;
     color: var(--ink);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
     margin-bottom: 8px;
   }
-  .body-text { color: #334155; line-height: 1.85; font-size: 15px; }
-  .body-text strong { color: var(--ink); }
+  .body-text { color: var(--ink-soft); line-height: 1.95; font-size: 15px; }
+  .body-text strong { color: var(--ink); font-weight: 700; }
 
   .ph {
     background:
@@ -139,7 +147,7 @@
   }
 
   .price-card {
-    background: linear-gradient(135deg, #fffbeb 0%, #f5f3ff 100%);
+    background: linear-gradient(135deg, #fdf3e7 0%, #fce8ec 50%, #f3ecf8 100%);
     border: 2px solid transparent;
     background-clip: padding-box;
     position: relative;
@@ -150,7 +158,7 @@
     inset: 0;
     border-radius: inherit;
     padding: 2px;
-    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    background: linear-gradient(135deg, var(--rose) 0%, var(--quest-violet) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude;
     pointer-events: none;
@@ -160,19 +168,28 @@
     position: absolute;
     left: 17px; top: 36px; bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    background: linear-gradient(180deg, var(--rose) 0%, var(--quest-violet) 100%);
   }
   .step-dot {
     width: 36px; height: 36px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--quest-amber) 0%, var(--quest-violet) 100%);
+    background: linear-gradient(135deg, var(--rose) 0%, var(--quest-violet) 100%);
     color: white;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; font-size: 14px;
+    font-weight: 700; font-size: 14px;
     flex-shrink: 0;
     box-shadow: 0 0 0 4px white;
     position: relative; z-index: 1;
   }
+
+  .soft-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: 0 6px 24px -12px rgba(140,99,173,0.15);
+  }
+  .price-accent { color: var(--rose-deep); }
+  .price-arrow { color: var(--rose); }
 </style>
 </head>
 <body>
@@ -180,10 +197,10 @@
 <!-- Top Bar -->
 <header class="topbar sticky top-0 z-30">
   <div class="max-w-6xl mx-auto px-6 py-3 flex items-center gap-4">
-    <div class="crest" style="width:36px;height:36px;font-size:14px;border-radius:8px">E</div>
+    <div class="crest" style="width:36px;height:36px;font-size:14px;border-radius:12px">E</div>
     <div class="flex-1">
       <p class="text-xs text-slate-500 leading-tight">Eden Online Program</p>
-      <p class="text-sm font-bold text-slate-900 leading-tight">Platinum 2026 — VIPマスターコース</p>
+      <p class="text-sm font-bold text-slate-900 leading-tight">Platinum 2026 ／ VIPマスターコース</p>
     </div>
   </div>
 </header>
@@ -192,33 +209,33 @@
 <section class="hero-bg">
   <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
     <span class="section-tag tag-info">EDEN ONLINE PROGRAM / 2026 EDITION</span>
-    <h1 class="serif text-5xl md:text-6xl font-extrabold text-slate-900 leading-[1.18] mt-6 tracking-tight">
-      中学受験を、<br>
-      <span class="gradient-text">確かな勝ち筋</span>へ。
+    <h1 class="serif text-4xl md:text-6xl font-bold text-slate-900 leading-[1.4] md:leading-[1.3] mt-6 tracking-wide">
+      中学受験のその先まで、<br>
+      <span class="gradient-text">わが子の可能性</span>を、ていねいに。
     </h1>
-    <p class="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-      合格率を最短で引き上げる、限定スクール。<br>
+    <p class="mt-8 text-base md:text-lg text-slate-600 leading-loose max-w-2xl">
+      ひとりひとりに寄り添う、少人数制のオンラインスクール。<br>
       家庭教師Eden オンラインプログラム <strong class="text-slate-900">VIPマスターコース</strong>
     </p>
     <div class="mt-12 flex items-center gap-4">
       <div class="crest">E</div>
       <div>
         <p class="font-bold text-slate-900">株式会社Eden</p>
-        <p class="text-xs text-slate-500 tracking-wide">代表 居村直希 (なおき先生) / 中学受験指導 18年</p>
+        <p class="text-xs text-slate-500 tracking-wide">代表 居村直希（なおき先生）／ 中学受験指導 18年</p>
       </div>
     </div>
-    <p class="mt-12 text-xs text-slate-400 tracking-widest">PLATINUM 2026 / 本年度 最終募集</p>
+    <p class="mt-12 text-xs text-slate-400 tracking-[0.25em]">PLATINUM 2026 ／ 本年度のご案内</p>
   </div>
 </section>
 
 <!-- ISSUE -->
 <section class="bg-white border-y border-slate-200">
   <div class="max-w-6xl mx-auto px-6 py-20">
-    <span class="section-tag tag-issue">ISSUE</span>
-    <h2 class="section">「成績が伸びない」4つの原因</h2>
+    <span class="section-tag tag-issue">ABOUT</span>
+    <h2 class="section">こんなお悩み、ありませんか？</h2>
     <p class="body-text max-w-3xl">
-      大手塾や家庭教師との併用で <strong>2年間に500万円以上</strong> をかけても、
-      思うような結果が出ないご家庭には、共通する4つのパターンがあります。
+      大手塾や家庭教師を併用して <strong>2年間に500万円以上</strong> をかけても、
+      なかなか手応えが感じられない —— そんなご家庭には、よく似た4つの背景があります。
     </p>
     <div class="grid sm:grid-cols-2 gap-5 mt-10">
       <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col">
@@ -226,9 +243,9 @@
           <img src="./img-cause1.jpg" alt="原因が見えない" class="w-full h-full object-cover" loading="lazy">
         </div>
         <div class="p-7">
-          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">CAUSE 01</p>
-          <h3 class="font-bold text-slate-900 text-lg mb-3">原因が見えない</h3>
-          <p class="text-sm text-slate-600 leading-7">テストの結果は届くが、<strong>何でつまずいているか</strong>がわからない。本人もうまく説明できない。</p>
+          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">POINT 01</p>
+          <h3 class="font-bold text-slate-900 text-lg mb-3">つまずきが見えにくい</h3>
+          <p class="text-sm text-slate-600 leading-7">テストの結果は届くけれど、<strong>どこでつまずいているか</strong>までは見えない。お子様自身も、うまく言葉にできないものです。</p>
         </div>
       </div>
       <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col">
@@ -236,9 +253,9 @@
           <img src="./img-cause2.jpg" alt="改善方法がわからない" class="w-full h-full object-cover" loading="lazy">
         </div>
         <div class="p-7">
-          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">CAUSE 02</p>
-          <h3 class="font-bold text-slate-900 text-lg mb-3">改善方法がわからない</h3>
-          <p class="text-sm text-slate-600 leading-7">原因がわかっても、<strong>どう手を打てばいいか</strong>が見えない。手探りでは時間ばかり過ぎる。</p>
+          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">POINT 02</p>
+          <h3 class="font-bold text-slate-900 text-lg mb-3">次の一歩がわからない</h3>
+          <p class="text-sm text-slate-600 leading-7">原因が見えても、<strong>何から始めればいいのか</strong>が決められない。手探りで進むと、貴重な時間ばかりが過ぎていきます。</p>
         </div>
       </div>
       <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col">
@@ -246,9 +263,9 @@
           <img src="./img-cause3.jpg" alt="自力では限界" class="w-full h-full object-cover" loading="lazy">
         </div>
         <div class="p-7">
-          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">CAUSE 03</p>
-          <h3 class="font-bold text-slate-900 text-lg mb-3">自力では限界</h3>
-          <p class="text-sm text-slate-600 leading-7">改善方法が見えても、<strong>家庭だけで実行</strong>するのが難しい。続かない、軌道修正できない。</p>
+          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">POINT 03</p>
+          <h3 class="font-bold text-slate-900 text-lg mb-3">ご家庭だけでは続けにくい</h3>
+          <p class="text-sm text-slate-600 leading-7">やるべきことが見えても、<strong>ご家庭だけで支え続ける</strong>のは大変。途中で止まってしまったり、軌道修正が難しくなったり。</p>
         </div>
       </div>
       <div class="rounded-2xl bg-white border border-slate-200 overflow-hidden flex flex-col">
@@ -256,9 +273,9 @@
           <img src="./img-cause4.jpg" alt="モチベーションが続かない" class="w-full h-full object-cover" loading="lazy">
         </div>
         <div class="p-7">
-          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">CAUSE 04</p>
-          <h3 class="font-bold text-slate-900 text-lg mb-3">モチベーションが続かない</h3>
-          <p class="text-sm text-slate-600 leading-7">本人が<strong>やる気を持続できない</strong>。家庭の声かけが逆効果になることも。</p>
+          <p class="text-xs text-slate-400 tracking-widest mb-2 font-bold">POINT 04</p>
+          <h3 class="font-bold text-slate-900 text-lg mb-3">やる気が長続きしない</h3>
+          <p class="text-sm text-slate-600 leading-7">お子様自身の<strong>やる気がうまく続かない</strong>。良かれと思った声かけが、ときに空回りしてしまうことも。</p>
         </div>
       </div>
     </div>
@@ -268,27 +285,27 @@
 <!-- SOLUTION -->
 <section class="bg-slate-50">
   <div class="max-w-6xl mx-auto px-6 py-20">
-    <span class="section-tag tag-solution">SOLUTION</span>
-    <h2 class="section">Edenの解決アプローチ</h2>
-    <p class="body-text max-w-3xl">「データで原因を特定し、毎週改善する」3ステップで、最短ルートの合格戦略を実行します。</p>
+    <span class="section-tag tag-solution">APPROACH</span>
+    <h2 class="section">Edenの寄り添い方</h2>
+    <p class="body-text max-w-3xl">「丁寧に見つめて、一緒に考えて、ゆっくり前へ」。3つのステップで、お子様にあった合格までの道のりをご一緒します。</p>
     <div class="grid md:grid-cols-3 gap-6 mt-10">
-      <div class="rounded-2xl border-2 border-violet-200 p-7 bg-white">
-        <p class="text-xs tracking-widest text-violet-700 mb-3 font-bold">STEP 01</p>
-        <div class="text-4xl mb-4">🔍</div>
-        <h3 class="font-bold text-slate-900 text-xl mb-3">原因の特定</h3>
-        <p class="text-sm text-slate-600 leading-7">毎回の授業でTOP講師が苦手箇所を抽出。<strong>データで弱点を可視化</strong>します。</p>
+      <div class="rounded-3xl border border-rose-100 p-7 bg-white shadow-sm">
+        <p class="text-xs tracking-widest mb-3 font-bold" style="color:var(--rose-deep)">STEP 01</p>
+        <div class="text-4xl mb-4">🌱</div>
+        <h3 class="font-bold text-slate-900 text-xl mb-3">気づく</h3>
+        <p class="text-sm text-slate-600 leading-7">毎回の授業で、講師が小さなつまずきまで丁寧に見つけます。<strong>苦手の輪郭をやさしく可視化</strong>します。</p>
       </div>
-      <div class="rounded-2xl border-2 border-amber-200 p-7 bg-white">
-        <p class="text-xs tracking-widest text-amber-700 mb-3 font-bold">STEP 02</p>
-        <div class="text-4xl mb-4">📊</div>
-        <h3 class="font-bold text-slate-900 text-xl mb-3">データ分析</h3>
-        <p class="text-sm text-slate-600 leading-7">学習データを分析し、<strong>志望校別・本人別</strong>の最短ルートを設計します。</p>
+      <div class="rounded-3xl border border-violet-100 p-7 bg-white shadow-sm">
+        <p class="text-xs tracking-widest mb-3 font-bold" style="color:var(--quest-violet-deep)">STEP 02</p>
+        <div class="text-4xl mb-4">🗺️</div>
+        <h3 class="font-bold text-slate-900 text-xl mb-3">見つめる</h3>
+        <p class="text-sm text-slate-600 leading-7">学習の歩みを丁寧に振り返り、<strong>志望校とお子様にあった</strong>無理のない道のりを描きます。</p>
       </div>
-      <div class="rounded-2xl border-2 border-violet-200 p-7 bg-white">
-        <p class="text-xs tracking-widest text-violet-700 mb-3 font-bold">STEP 03</p>
-        <div class="text-4xl mb-4">🚀</div>
-        <h3 class="font-bold text-slate-900 text-xl mb-3">改善の実行</h3>
-        <p class="text-sm text-slate-600 leading-7">完全オーダーメイドの<strong>マインドマップ</strong>と24時間LINEサポートで、実行をやりきります。</p>
+      <div class="rounded-3xl border border-amber-100 p-7 bg-white shadow-sm">
+        <p class="text-xs tracking-widest mb-3 font-bold" style="color:var(--quest-amber-deep)">STEP 03</p>
+        <div class="text-4xl mb-4">🌷</div>
+        <h3 class="font-bold text-slate-900 text-xl mb-3">寄り添う</h3>
+        <p class="text-sm text-slate-600 leading-7">お子様だけのオーダーメイド<strong>マインドマップ</strong>と24時間LINEで、毎日をそっと支えます。</p>
       </div>
     </div>
   </div>
@@ -298,14 +315,14 @@
 <section class="bg-slate-50" id="contents">
   <div class="max-w-6xl mx-auto px-6 py-20">
     <span class="section-tag tag-feature">CONTENTS</span>
-    <h2 class="section">VIPマスターコースの内容</h2>
-    <p class="body-text max-w-3xl">合格までの6ヶ月を、徹底的に支える4カテゴリ・8つの仕組み。</p>
+    <h2 class="section">VIPマスターコースの中身</h2>
+    <p class="body-text max-w-3xl">合格までの6ヶ月を、ご家族みんなでしっかり歩める。4つのテーマでお届けする、Edenだけの仕組みです。</p>
 
     <!-- カテゴリ1: 講師による指導 -->
     <div class="mt-14 pt-10 border-t border-slate-200">
       <div class="flex items-baseline gap-4 flex-wrap">
-        <span class="text-xs tracking-widest text-amber-700 font-bold">CATEGORY 1</span>
-        <h3 class="text-2xl font-extrabold text-slate-900">講師による指導 — トッププロが毎週直接教える</h3>
+        <span class="text-xs tracking-widest font-bold" style="color:var(--quest-amber-deep)">THEME 1</span>
+        <h3 class="text-2xl font-bold text-slate-900">講師の指導 — 毎週、直接ふれあう学び</h3>
       </div>
       <div class="grid md:grid-cols-3 gap-5 mt-8">
         <div class="rounded-2xl border border-amber-200 bg-white overflow-hidden flex flex-col">
@@ -313,8 +330,8 @@
             <img src="./img-mantoman.png" alt="マンツーマン指導の様子" class="w-full h-full object-cover" loading="lazy">
           </div>
           <div class="p-6 flex-1">
-            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">👨‍🏫</span><h4 class="font-bold text-slate-900">マンツーマン直接指導</h4></div>
-            <p class="text-sm text-slate-600 leading-7">2時間×24回 = 計48時間。なおき先生 + 専任TOP講師が完全カスタム授業。毎週苦手箇所を抽出して翌週解決の高速PDCA。</p>
+            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">👩‍🏫</span><h4 class="font-bold text-slate-900">マンツーマン授業</h4></div>
+            <p class="text-sm text-slate-600 leading-7">2時間×24回＝計48時間。なおき先生＋専任講師が、お子様だけの授業を組み立てます。気になる箇所はすぐに翌週の授業へ反映。</p>
           </div>
         </div>
         <div class="rounded-2xl border border-amber-200 bg-white overflow-hidden flex flex-col">
@@ -322,8 +339,8 @@
             <img src="./img-live.jpg" alt="プレミアムライブ講座" class="w-full h-full object-cover" loading="lazy">
           </div>
           <div class="p-6 flex-1">
-            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">📡</span><h4 class="font-bold text-slate-900">プレミアムライブ講座</h4></div>
-            <p class="text-sm text-slate-600 leading-7">週4回・受け放題。算数(椙杜) / 国語(石橋) / 社会・理科(椙杜&石橋) の4教科を2名のTOP講師がカバー。6ヶ月で計96時間。</p>
+            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">📺</span><h4 class="font-bold text-slate-900">プレミアムライブ講座</h4></div>
+            <p class="text-sm text-slate-600 leading-7">週4回・参加自由。算数（椙杜）／ 国語（石橋）／ 社会・理科（椙杜＆石橋）の4教科を、ベテラン講師2名が丁寧にお届け。6ヶ月で計96時間。</p>
           </div>
         </div>
         <div class="rounded-2xl border border-amber-200 bg-white overflow-hidden flex flex-col">
@@ -331,8 +348,8 @@
             <img src="./img-grucon.png" alt="VIPグルコンの様子" class="w-full h-full object-cover" loading="lazy">
           </div>
           <div class="p-6 flex-1">
-            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">👥</span><h4 class="font-bold text-slate-900">VIPグルコン 毎週</h4></div>
-            <p class="text-sm text-slate-600 leading-7">なおき先生主催のグループコンサル。他家庭の戦略から学べる場。</p>
+            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">☕</span><h4 class="font-bold text-slate-900">保護者の集い 毎週</h4></div>
+            <p class="text-sm text-slate-600 leading-7">なおき先生主宰の少人数グループ相談会。他のご家庭の取り組みから、ヒントや勇気をもらえる時間です。</p>
           </div>
         </div>
       </div>
@@ -341,8 +358,8 @@
     <!-- カテゴリ2: 学習をやりきる仕組み -->
     <div class="mt-14 pt-10 border-t border-slate-200">
       <div class="flex items-baseline gap-4 flex-wrap">
-        <span class="text-xs tracking-widest text-violet-700 font-bold">CATEGORY 2</span>
-        <h3 class="text-2xl font-extrabold text-slate-900">学習をやりきる仕組み — 「いつ、何を」が常に明確に</h3>
+        <span class="text-xs tracking-widest font-bold" style="color:var(--quest-violet-deep)">THEME 2</span>
+        <h3 class="text-2xl font-bold text-slate-900">毎日を支える仕組み — 「今日、何をすれば？」に答える</h3>
       </div>
       <div class="grid md:grid-cols-3 gap-5 mt-8">
         <div class="rounded-2xl border border-violet-200 bg-white overflow-hidden flex flex-col">
@@ -350,8 +367,8 @@
             <img src="./img-line.png" alt="24時間LINEサポート" class="w-full h-full object-cover" loading="lazy">
           </div>
           <div class="p-6 flex-1">
-            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">💬</span><h4 class="font-bold text-slate-900">24時間LINEサポート</h4></div>
-            <p class="text-sm text-slate-600 leading-7">なおき先生 + 専任講師のダブル体制でいつでも質問可能。「ちょっとした疑問」も気軽に投げられます。</p>
+            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">💌</span><h4 class="font-bold text-slate-900">24時間LINEサポート</h4></div>
+            <p class="text-sm text-slate-600 leading-7">なおき先生＋専任講師のダブル体制で、いつでもお気軽にご相談いただけます。「ちょっとした不安」もそのままで大丈夫。</p>
           </div>
         </div>
         <div class="rounded-2xl border border-violet-200 bg-white overflow-hidden flex flex-col">
@@ -359,8 +376,8 @@
             <img src="./img-mindmap.png" alt="マインドマップ / 学習プランニング" class="w-full h-full object-cover" loading="lazy">
           </div>
           <div class="p-6 flex-1">
-            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🧭</span><h4 class="font-bold text-slate-900">マインドマップ</h4></div>
-            <p class="text-sm text-slate-600 leading-7">志望校・現状の成績・性格をふまえ、合格までの道筋を1枚に可視化。毎月見直し更新。</p>
+            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🗺️</span><h4 class="font-bold text-slate-900">合格までのマインドマップ</h4></div>
+            <p class="text-sm text-slate-600 leading-7">志望校・今のご成績・お子様の性格までふまえて、合格までの道のりをやさしく1枚に。毎月、ご一緒に見直しを。</p>
           </div>
         </div>
         <div class="rounded-2xl border border-violet-200 bg-white overflow-hidden flex flex-col">
@@ -371,8 +388,8 @@
             <div class="overflow-hidden bg-slate-900"><img src="./img-archive-science.png" alt="理科講座アーカイブ" class="w-full h-full object-cover object-top" loading="lazy"></div>
           </div>
           <div class="p-6 flex-1">
-            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🎬</span><h4 class="font-bold text-slate-900">アーカイブ200本以上</h4></div>
-            <p class="text-sm text-slate-600 leading-7">算数・国語・社会・理科の4教科すべての過去ライブ授業を見返せる。「あの解法もう一度」が自由に。</p>
+            <div class="flex items-center gap-2 mb-2"><span class="text-2xl">🎞️</span><h4 class="font-bold text-slate-900">アーカイブ200本以上</h4></div>
+            <p class="text-sm text-slate-600 leading-7">4教科すべての過去ライブ授業をいつでも見返せます。「あの解き方をもう一度」が、お子様のペースで叶います。</p>
           </div>
         </div>
       </div>
@@ -381,27 +398,27 @@
     <!-- カテゴリ3: お子様の自走を支える (EdenQuest) -->
     <div class="mt-14 pt-10 border-t border-slate-200">
       <div class="flex items-baseline gap-4 flex-wrap">
-        <span class="text-xs tracking-widest text-amber-700 font-bold">CATEGORY 3</span>
-        <h3 class="text-2xl font-extrabold text-slate-900">お子様の自走を支える</h3>
+        <span class="text-xs tracking-widest font-bold" style="color:var(--quest-amber-deep)">THEME 3</span>
+        <h3 class="text-2xl font-bold text-slate-900">お子様が自分から学べる</h3>
       </div>
-      <div class="mt-8 rounded-3xl p-8 md:p-12 bg-gradient-to-br from-amber-50 via-white to-violet-50 border-2 border-amber-200 relative overflow-hidden">
+      <div class="mt-8 rounded-3xl p-8 md:p-12 bg-gradient-to-br from-rose-50 via-white to-violet-50 border border-rose-100 relative overflow-hidden shadow-sm">
         <span class="absolute top-6 right-6 vip-badge">VIP限定</span>
-        <h4 class="text-2xl md:text-3xl font-extrabold text-slate-900 mb-3">⚔️ EdenQuest 学習アプリ</h4>
-        <p class="body-text max-w-3xl mb-6">「自分から机に向かう」を仕組み化する、Eden独自のゲーミフィケーション学習アプリ。<strong class="text-amber-700">VIPマスターコースの方のみご利用いただけます</strong>。</p>
+        <h4 class="text-2xl md:text-3xl font-bold text-slate-900 mb-3">🌸 EdenQuest 学習アプリ</h4>
+        <p class="body-text max-w-3xl mb-6">「自分から机に向かいたくなる」をそっと後押しする、Edenだけの学習アプリ。<strong style="color:var(--rose-deep)">VIPマスターコースの方限定でお届けします</strong>。</p>
         <div class="grid md:grid-cols-5 gap-6 items-center">
           <div class="md:col-span-3">
-            <figure class="rounded-2xl overflow-hidden border border-amber-200 shadow-md bg-white">
+            <figure class="rounded-2xl overflow-hidden border border-rose-100 shadow-md bg-white">
               <img src="./img-edenquest1.png" alt="EdenQuest 学習画面" class="w-full h-auto block" loading="lazy">
             </figure>
           </div>
           <div class="md:col-span-2 space-y-4">
-            <div><p class="font-bold text-slate-900 mb-1">⚔️ クエスト型レッスン</p><p class="text-sm text-slate-600 leading-7">単元をクリアするとマップが解放。学習がアドベンチャーに。</p></div>
-            <div><p class="font-bold text-slate-900 mb-1">🐉 ペット育成</p><p class="text-sm text-slate-600 leading-7">勉強するほど相棒が進化。「もう一問」が自然と生まれる。</p></div>
-            <div><p class="font-bold text-slate-900 mb-1">📖 デジタル教科書</p><p class="text-sm text-slate-600 leading-7">マーカー・用語集・要約付き。隙間時間の学習にも。</p></div>
-            <div><p class="font-bold text-slate-900 mb-1">🎯 ボス問題で定着</p><p class="text-sm text-slate-600 leading-7">忘却曲線対応の自動復習で、3週間で抜けない定着へ。</p></div>
+            <div><p class="font-bold text-slate-900 mb-1">🌟 クエスト型レッスン</p><p class="text-sm text-slate-600 leading-7">単元を進めるとマップが広がっていく。学びが、ちいさな冒険に。</p></div>
+            <div><p class="font-bold text-slate-900 mb-1">🐰 ペット育成</p><p class="text-sm text-slate-600 leading-7">頑張るほど相棒がすくすく成長。「もう1問だけ」が自然と生まれます。</p></div>
+            <div><p class="font-bold text-slate-900 mb-1">📖 デジタル教科書</p><p class="text-sm text-slate-600 leading-7">マーカー・用語集・要点まとめつき。すきま時間でも学べます。</p></div>
+            <div><p class="font-bold text-slate-900 mb-1">🎯 ボス問題で定着</p><p class="text-sm text-slate-600 leading-7">忘却曲線にあわせた復習で、3週間でしっかり身につきます。</p></div>
           </div>
         </div>
-        <figure class="mt-6 rounded-2xl overflow-hidden border border-amber-200 shadow-md bg-white">
+        <figure class="mt-6 rounded-2xl overflow-hidden border border-rose-100 shadow-md bg-white">
           <img src="./img-edenquest2.png" alt="EdenQuest 別画面" class="w-full h-auto block" loading="lazy">
         </figure>
       </div>
@@ -410,12 +427,12 @@
     <!-- カテゴリ4: 保護者向け (Parent Portal 統合) -->
     <div class="mt-14 pt-10 border-t border-slate-200">
       <div class="flex items-baseline gap-4 flex-wrap">
-        <span class="text-xs tracking-widest text-violet-700 font-bold">CATEGORY 4</span>
-        <h3 class="text-2xl font-extrabold text-slate-900">保護者向け — 進捗を、いつでも保護者の手元で</h3>
+        <span class="text-xs tracking-widest font-bold" style="color:var(--quest-violet-deep)">THEME 4</span>
+        <h3 class="text-2xl font-bold text-slate-900">保護者の方へ — お子様の歩みを、いつでもお手元に</h3>
       </div>
-      <div class="mt-8 rounded-3xl bg-white border-2 border-violet-200 p-8 md:p-10">
-        <h4 class="text-xl md:text-2xl font-extrabold text-slate-900 mb-3">📚 Eden 保護者ポータル</h4>
-        <p class="body-text max-w-3xl mb-6">「いつ・誰が・何を教えて・どこまで進んだか」が、ひと目でわかる。保護者が必要な情報を1ヶ所に集約。</p>
+      <div class="mt-8 rounded-3xl bg-white border border-violet-100 p-8 md:p-10 shadow-sm">
+        <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-3">💐 Eden 保護者ポータル</h4>
+        <p class="body-text max-w-3xl mb-6">「いつ・誰が・何を教えて・どこまで進んだか」が、ひと目で見渡せます。保護者の方に必要な情報を、ひとつの場所にやさしくまとめました。</p>
         <div class="grid md:grid-cols-2 gap-x-8 gap-y-5 mb-10">
           <div class="flex gap-3"><div class="text-2xl shrink-0">📝</div><div><p class="font-bold text-slate-900 text-sm mb-1">授業報告書</p><p class="text-xs text-slate-600 leading-6">毎回の授業内容・宿題・次回テーマを時系列で確認。家族にも限定公開URLで共有可能。</p></div></div>
           <div class="flex gap-3"><div class="text-2xl shrink-0">📊</div><div><p class="font-bold text-slate-900 text-sm mb-1">残回数・予定</p><p class="text-xs text-slate-600 leading-6">契約消化状況・次回授業予定をリアルタイム表示。</p></div></div>
@@ -452,28 +469,28 @@
 <!-- INTEGRATION FLOW -->
 <section class="bg-white border-y border-slate-200">
   <div class="max-w-6xl mx-auto px-6 py-20">
-    <span class="section-tag tag-info">INTEGRATION</span>
-    <h2 class="section">講師 → 保護者 → お子様 が、一つの流れに</h2>
-    <p class="body-text max-w-3xl">3つの柱がデータでつながることで、保護者の方は何もしなくても、毎日の学習が自然に前に進みます。</p>
+    <span class="section-tag tag-info">FLOW</span>
+    <h2 class="section">講師 → 保護者 → お子様 へ、ゆるやかにつながる</h2>
+    <p class="body-text max-w-3xl">3つの想いがデータでつながることで、保護者の方が手をかけなくても、毎日の学習が自然に前へ進んでいきます。</p>
     <div class="grid md:grid-cols-3 gap-6 mt-10">
-      <div class="rounded-2xl border border-slate-200 p-7 text-center bg-white">
-        <div class="w-14 h-14 rounded-full bg-slate-100 mx-auto flex items-center justify-center text-2xl mb-3">👩‍🏫</div>
-        <p class="text-xs text-slate-500 mb-2 font-bold tracking-widest">STEP 1</p>
-        <p class="font-bold text-slate-900 mb-3">講師が授業 + 報告</p>
-        <p class="text-sm text-slate-600 leading-7">Zoomで1on1指導。授業録画 → 自動アップロード。報告書作成。</p>
+      <div class="rounded-3xl border border-slate-200 p-7 text-center bg-white shadow-sm">
+        <div class="w-14 h-14 rounded-full mx-auto flex items-center justify-center text-2xl mb-3" style="background:var(--rose-soft)">👩‍🏫</div>
+        <p class="text-xs mb-2 font-bold tracking-widest" style="color:var(--rose-deep)">STEP 1</p>
+        <p class="font-bold text-slate-900 mb-3">講師が授業 ＆ ご報告</p>
+        <p class="text-sm text-slate-600 leading-7">Zoomでマンツーマン指導。授業録画 → 自動でアップロード。心のこもった報告書を作成します。</p>
       </div>
-      <div class="rounded-2xl border border-slate-200 p-7 text-center bg-slate-50">
-        <div class="w-14 h-14 rounded-full bg-slate-100 mx-auto flex items-center justify-center text-2xl mb-3">📚</div>
-        <p class="text-xs text-slate-500 mb-2 font-bold tracking-widest">STEP 2</p>
+      <div class="rounded-3xl border border-slate-200 p-7 text-center bg-slate-50 shadow-sm">
+        <div class="w-14 h-14 rounded-full mx-auto flex items-center justify-center text-2xl mb-3" style="background:var(--quest-violet-soft)">💐</div>
+        <p class="text-xs mb-2 font-bold tracking-widest" style="color:var(--quest-violet-deep)">STEP 2</p>
         <p class="font-bold text-slate-900 mb-3">保護者ポータルへ反映</p>
-        <p class="text-sm text-slate-600 leading-7">報告書・録画・残回数が即時更新。LINEで保護者へ通知。</p>
+        <p class="text-sm text-slate-600 leading-7">報告書・録画・残り回数がすぐに更新。LINEでもやさしくお知らせします。</p>
       </div>
-      <div class="rounded-2xl border-2 border-amber-300 p-7 text-center bg-amber-50/40 relative">
+      <div class="rounded-3xl border border-rose-200 p-7 text-center relative shadow-sm" style="background:linear-gradient(135deg,#fdf3e7 0%,#fce8ec 100%)">
         <span class="absolute top-4 right-4 vip-badge">VIP限定</span>
-        <div class="w-14 h-14 rounded-full bg-amber-100 mx-auto flex items-center justify-center text-2xl mb-3">⚔️</div>
-        <p class="text-xs text-amber-700 mb-2 font-bold tracking-widest">STEP 3</p>
-        <p class="font-bold text-slate-900 mb-3">EdenQuestで自走</p>
-        <p class="text-sm text-slate-600 leading-7">指示された単元をお子様がアプリで学習。進捗が次回授業へ。</p>
+        <div class="w-14 h-14 rounded-full mx-auto flex items-center justify-center text-2xl mb-3" style="background:white">🌸</div>
+        <p class="text-xs mb-2 font-bold tracking-widest" style="color:var(--rose-deep)">STEP 3</p>
+        <p class="font-bold text-slate-900 mb-3">EdenQuestで一歩ずつ</p>
+        <p class="text-sm text-slate-600 leading-7">先生からのおすすめ単元をお子様がアプリで学習。歩みは次回の授業にもつながります。</p>
       </div>
     </div>
   </div>
@@ -483,8 +500,8 @@
 <section class="bg-white border-y border-slate-200">
   <div class="max-w-6xl mx-auto px-6 py-20">
     <span class="section-tag tag-info">VOICES</span>
-    <h2 class="section">受講生・保護者の声</h2>
-    <p class="body-text max-w-3xl">受講中・受講後のご家庭から、こんなお声をいただいています。</p>
+    <h2 class="section">ご家族からの、あたたかいお声</h2>
+    <p class="body-text max-w-3xl">受講中・受講後のご家庭から、こんなメッセージをいただいています。</p>
     <figure class="mt-10">
       <img src="./voices.png" alt="受講生・保護者からのLINEメッセージ — 「先程初めて土曜講座に参加しました。まるで遊んでいるように楽しんでいました!本当に勉強してるの?ってくらい…」など、保護者・お子様からの感想・お礼のメッセージ4通" class="w-full h-auto rounded-2xl border border-slate-200 shadow-md" loading="lazy">
       <figcaption class="text-xs text-slate-500 mt-3 text-center leading-relaxed">※ 公式LINEに届いた実際のメッセージより。個人を特定できる箇所はマスキング処理しています。</figcaption>
@@ -496,7 +513,7 @@
 <section class="bg-white border-y border-slate-200" id="price">
   <div class="max-w-3xl mx-auto px-6 py-20">
     <span class="section-tag tag-price">VALUE & PRICE</span>
-    <h2 class="section text-center">至れり尽くせりのプラン、その全価値</h2>
+    <h2 class="section text-center">心を込めて、ご用意したプラン</h2>
 
     <!-- リード文 -->
     <div class="mt-12 space-y-7 text-center">
@@ -544,9 +561,9 @@
     <!-- 本年度限定特典 (true bonuses only) -->
     <div class="mt-20 pt-12 border-t-2 border-red-300">
       <p class="text-center text-2xl md:text-3xl font-extrabold text-red-600 mb-3 tracking-wider">
-        本年度<span class="inline-block bg-red-600 text-white px-3 py-1 rounded mx-1 text-2xl md:text-3xl">4つの限定特典</span>
+        本年度<span class="inline-block bg-red-600 text-white px-3 py-1 rounded mx-1 text-2xl md:text-3xl">4つの嬉しい特典</span>
       </p>
-      <p class="text-center text-sm text-slate-500 mb-10">本年度お申込みの方限定でお付けする特典です</p>
+      <p class="text-center text-sm text-slate-500 mb-10">本年度お申込みの方へ、感謝の気持ちを込めてお届けします</p>
       <div class="grid sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
         <div class="bg-white border-2 border-red-200 rounded-xl p-5">
           <p class="text-[11px] tracking-widest text-red-600 font-bold mb-2">BONUS 01 / 限定価格</p>
@@ -570,14 +587,14 @@
     <!-- ↓ そして 2 コース対比 -->
     <div class="mt-20 pt-12 border-t-2 border-red-300">
       <p class="text-center text-xs text-red-600 font-bold tracking-widest mb-2">CHOOSE YOUR PLAN</p>
-      <h3 class="text-center text-2xl md:text-3xl font-extrabold text-slate-900 mb-10">2つのコースからお選びいただけます</h3>
+      <h3 class="text-center text-2xl md:text-3xl font-bold text-slate-900 mb-10">ご家庭にあったコースをお選びください</h3>
       <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
         <!-- VIPマスター -->
         <div class="price-card rounded-2xl p-7 flex flex-col relative bg-white">
           <span class="absolute top-5 right-5 vip-badge">VIP MASTER</span>
-          <p class="text-xs tracking-widest text-amber-700 mb-1 font-bold">PLAN A / RECOMMENDED</p>
-          <h4 class="font-extrabold text-slate-900 text-2xl mb-1">VIPマスターコース</h4>
-          <p class="text-sm text-slate-500 mb-6">6ヶ月 完全合格プログラム</p>
+          <p class="text-xs tracking-widest mb-1 font-bold" style="color:var(--rose-deep)">PLAN A ／ おすすめ</p>
+          <h4 class="font-bold text-slate-900 text-2xl mb-1">VIPマスターコース</h4>
+          <p class="text-sm text-slate-500 mb-6">6ヶ月でじっくり、合格まで寄り添うプログラム</p>
           <div class="mb-6 pb-6 border-b border-amber-100 text-center">
             <p class="text-xs text-slate-500 mb-1">通常価格</p>
             <p class="line-through decoration-2 decoration-slate-400 text-slate-400 text-base">3,000,000円相当</p>
@@ -590,20 +607,20 @@
           </div>
           <p class="text-xs text-amber-700 font-bold tracking-widest mb-3">含まれる内容</p>
           <ul class="space-y-2 text-sm text-slate-700 flex-1">
-            <li class="flex items-start"><span class="check"></span>マンツーマン直接指導 24回（各2時間）</li>
+            <li class="flex items-start"><span class="check"></span>マンツーマン授業 24回（各2時間）</li>
             <li class="flex items-start"><span class="check"></span>24時間LINEサポート（ダブル体制）</li>
-            <li class="flex items-start"><span class="check"></span>プレミアムライブ講座 計96時間</li>
-            <li class="flex items-start"><span class="check"></span>完全オーダーメイドマインドマップ</li>
+            <li class="flex items-start"><span class="check"></span>プレミアムライブ講座 週4時間 × 6ヶ月（計96時間）</li>
+            <li class="flex items-start"><span class="check"></span>お子様だけのオーダーメイド マインドマップ</li>
             <li class="flex items-start"><span class="check"></span>ライブアーカイブ 200本以上</li>
-            <li class="flex items-start"><span class="check"></span><strong class="text-amber-700">EdenQuest 学習アプリ</strong></li>
-            <li class="flex items-start"><span class="check"></span>なおき先生VIPグルコン 毎週参加</li>
+            <li class="flex items-start"><span class="check"></span><strong style="color:var(--rose-deep)">EdenQuest 学習アプリ</strong></li>
+            <li class="flex items-start"><span class="check"></span>保護者の集い（毎週）にご参加いただけます</li>
           </ul>
         </div>
         <!-- スタートダッシュ -->
         <div class="rounded-2xl border border-slate-200 p-7 flex flex-col bg-white">
-          <p class="text-xs tracking-widest text-slate-500 mb-1 font-bold">PLAN B / TRIAL</p>
-          <h4 class="font-extrabold text-slate-900 text-2xl mb-1">スタートダッシュコース</h4>
-          <p class="text-sm text-slate-500 mb-6">3か月間のお試しプログラム</p>
+          <p class="text-xs tracking-widest text-slate-500 mb-1 font-bold">PLAN B ／ まずは始めたい方へ</p>
+          <h4 class="font-bold text-slate-900 text-2xl mb-1">スタートダッシュコース</h4>
+          <p class="text-sm text-slate-500 mb-6">3ヶ月間で、Edenの学びを体験</p>
           <div class="mb-6 pb-6 border-b border-slate-100 text-center">
             <p class="text-xs text-slate-500 mb-1">通常価格</p>
             <p class="line-through decoration-2 decoration-slate-400 text-slate-400 text-base">1,200,000円（税込）</p>
@@ -616,7 +633,7 @@
           <ul class="space-y-2 text-sm text-slate-700 flex-1">
             <li class="flex items-start"><span class="check"></span>マンツーマン直接指導 12回</li>
             <li class="flex items-start"><span class="check"></span>24時間LINEサポート</li>
-            <li class="flex items-start"><span class="check"></span>プレミアムライブ講座 受け放題</li>
+            <li class="flex items-start"><span class="check"></span>プレミアムライブ講座 週4時間 × 3ヶ月（計48時間）</li>
             <li class="flex items-start"><span class="check"></span>マインドマップ付き</li>
             <li class="flex items-start text-slate-400"><span class="shrink-0 inline-block w-5 h-5 rounded-full bg-slate-200 text-slate-400 text-center text-xs leading-5 mr-3">×</span>EdenQuest は対象外（VIP限定）</li>
           </ul>
@@ -630,12 +647,12 @@
 <!-- IMPORTANT NOTICE -->
 <section class="bg-slate-50">
   <div class="max-w-3xl mx-auto px-6 py-16">
-    <div class="rounded-xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-400 p-6 shadow-lg shadow-red-100">
-      <p class="text-[11px] tracking-[0.25em] text-red-700 font-extrabold mb-2">⚠️ IMPORTANT NOTICE</p>
-      <p class="text-lg md:text-xl font-extrabold text-red-700 leading-relaxed">
-        本年度は <span class="bg-red-600 text-white px-2 py-0.5 rounded mx-1">最後の募集</span> となります。
+    <div class="rounded-3xl bg-gradient-to-r from-rose-50 via-white to-violet-50 border border-rose-200 p-8 shadow-md" style="box-shadow: 0 12px 32px -16px rgba(228,154,170,0.35)">
+      <p class="text-[11px] tracking-[0.25em] font-bold mb-3" style="color:var(--rose-deep)">🌷 ご案内</p>
+      <p class="text-lg md:text-xl font-bold leading-relaxed" style="color:var(--ink)">
+        本年度は、しばらくのあいだ <span class="px-3 py-1 rounded-full mx-1" style="background:linear-gradient(135deg,var(--rose) 0%,var(--quest-violet) 100%);color:white;font-size:0.95em">最後のご案内</span> となる予定です。
       </p>
-      <p class="text-sm text-red-900 mt-2 font-bold leading-7">次回以降の募集は<span class="underline decoration-2 decoration-red-500">未定</span>です。</p>
+      <p class="text-sm mt-3 leading-7" style="color:var(--ink-soft)">次回以降の募集予定は、まだ決まっておりません。気になる方は、どうぞお早めにご検討ください。</p>
     </div>
   </div>
 </section>
@@ -644,7 +661,7 @@
 <section class="bg-slate-50">
   <div class="max-w-6xl mx-auto px-6 py-16">
     <span class="section-tag tag-info">COMPANY</span>
-    <h2 class="section">運営会社</h2>
+    <h2 class="section">運営会社のご案内</h2>
     <div class="grid md:grid-cols-2 gap-12 mt-10">
       <div class="space-y-3 text-sm">
         <div class="flex"><span class="text-slate-500 inline-block w-24 shrink-0">商号</span><span class="text-slate-900 font-medium">株式会社Eden</span></div>
