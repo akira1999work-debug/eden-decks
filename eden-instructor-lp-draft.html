@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-<title>Eden 認定家庭教師 養成講座 LP（叩き台）</title>
+<title>Eden 認定家庭教師 養成講座 LP（叩き台 v0.2）</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -20,6 +20,8 @@
   --accent-soft:#fff7ed;
   --note:#dc2626;
   --note-soft:#fef2f2;
+  --pro:#0f766e;
+  --pro-soft:#f0fdfa;
 }
 html{scroll-behavior:smooth}
 body{
@@ -33,7 +35,6 @@ body{
 }
 .wrap{max-width:780px;margin:0 auto;padding:0 28px}
 
-/* DRAFT NOTICE */
 .draft-bar{
   background:var(--note-soft);
   border-bottom:1px solid #fecaca;
@@ -79,7 +80,18 @@ body{
   color:var(--muted);
   line-height:2.1;
   max-width:580px;
-  margin:0 auto;
+  margin:0 auto 32px;
+}
+.hero-promise{
+  display:inline-block;
+  font-family:-apple-system,sans-serif;
+  font-size:13px;
+  color:var(--pro);
+  background:var(--pro-soft);
+  border:1px solid #99f6e4;
+  padding:10px 20px;
+  border-radius:100px;
+  letter-spacing:0.05em;
 }
 
 /* SECTIONS */
@@ -93,6 +105,7 @@ section{padding:72px 0;border-bottom:1px solid var(--line)}
   margin-bottom:14px;
   text-transform:uppercase;
 }
+.section-eye.pro{color:var(--pro)}
 section h2{
   font-size:clamp(22px,3vw,28px);
   font-weight:600;
@@ -101,6 +114,7 @@ section h2{
   letter-spacing:0.04em;
 }
 section h2 em{font-style:normal;color:var(--accent)}
+section h2 em.pro{color:var(--pro)}
 section .lead{
   color:var(--muted);
   font-size:15px;
@@ -114,7 +128,49 @@ h3{
   line-height:1.6;
 }
 
-/* QUOTE-LIKE LIST (悩み・特徴) */
+/* PERSONAS GRID (4枚カード) */
+.personas{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:24px;
+}
+.persona{
+  background:#fff;
+  border:1px solid var(--line);
+  padding:20px 18px;
+  font-size:13px;
+  line-height:1.85;
+  position:relative;
+}
+.persona::before{
+  content:"";
+  position:absolute;
+  top:-2px;left:14px;
+  width:48px;height:8px;
+  background:#e7e3da;
+  border-radius:2px;
+}
+.persona-num{
+  font-family:-apple-system,sans-serif;
+  font-size:11px;color:var(--dim);
+  letter-spacing:0.15em;
+  margin-bottom:8px;
+  margin-top:8px;
+}
+.persona-line{
+  color:var(--text);
+  font-size:13px;
+  line-height:1.95;
+  margin-bottom:6px;
+}
+.persona-em{
+  color:var(--accent);
+  font-weight:600;
+  border-bottom:1px solid #fde68a;
+}
+
+/* QUOTE-LIKE LIST */
 ul.echo{list-style:none;padding:0;margin:8px 0}
 ul.echo li{
   padding:18px 0 18px 28px;
@@ -133,7 +189,6 @@ ul.echo li::before{
   background:var(--accent);
 }
 
-/* DREAM PARAGRAPHS */
 .dream p{
   font-size:16px;
   line-height:2.2;
@@ -164,6 +219,82 @@ ul.echo li::before{
   color:var(--muted);font-size:14px;line-height:2.1;
 }
 
+/* METHOD (傾聴・質問・承認) */
+.method-intro{
+  background:var(--card);
+  border-left:3px solid var(--accent);
+  padding:24px 28px;
+  margin:24px 0;
+  font-size:15px;
+  line-height:2.1;
+}
+.method-intro strong{color:var(--accent);font-weight:600}
+.method-3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:32px;
+}
+.method-step{
+  text-align:center;
+  padding:24px 18px;
+  background:#fff;
+  border:1px solid var(--line);
+}
+.method-step-num{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:-apple-system,sans-serif;font-weight:700;font-size:16px;
+  margin:0 auto 16px;
+}
+.method-step h4{
+  font-size:18px;font-weight:600;margin-bottom:10px;
+}
+.method-step p{
+  font-size:13px;color:var(--muted);line-height:1.95;
+}
+
+/* PROMISE block */
+.promise-block{
+  background:var(--pro-soft);
+  border:1px solid #99f6e4;
+  border-radius:8px;
+  padding:36px 32px;
+  margin-top:24px;
+}
+.promise-block .label{
+  font-family:-apple-system,sans-serif;
+  font-size:11px;
+  color:var(--pro);
+  letter-spacing:0.3em;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.promise-block h3{
+  font-size:22px;font-weight:600;margin:0 0 18px;
+  color:var(--text);line-height:1.6;letter-spacing:0.03em;
+}
+.promise-block h3 em{font-style:normal;color:var(--pro);font-weight:700}
+.promise-block ul{list-style:none;padding:0;margin-top:20px}
+.promise-block ul li{
+  padding:10px 0 10px 24px;
+  font-size:14px;
+  line-height:1.95;
+  position:relative;
+  color:var(--text);
+  border-bottom:1px dashed #ccfbf1;
+}
+.promise-block ul li:last-child{border-bottom:none}
+.promise-block ul li::before{
+  content:"✓";
+  position:absolute;left:0;top:10px;
+  color:var(--pro);font-weight:700;
+  font-family:-apple-system,sans-serif;
+}
+
 /* TESTIMONIAL */
 .testimonial{
   padding:32px;
@@ -181,7 +312,6 @@ ul.echo li::before{
   letter-spacing:0.05em;
 }
 
-/* PLACEHOLDER */
 .placeholder{
   padding:24px;
   background:var(--note-soft);
@@ -225,7 +355,7 @@ ul.echo li::before{
   margin-top:14px;letter-spacing:0.05em;
 }
 
-/* FILTER (向き不向き) */
+/* FILTER */
 .filter-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -238,7 +368,7 @@ ul.echo li::before{
   margin-bottom:14px;font-weight:700;
 }
 .filter-col.on h4{color:var(--accent)}
-.filter-col.off h4{color:var(--dim)}
+.filter-col.off h4{color:var(--note)}
 .filter-col ul{list-style:none;padding:0}
 .filter-col ul li{
   padding:10px 0 10px 18px;
@@ -249,7 +379,20 @@ ul.echo li::before{
 .filter-col ul li:last-child{border-bottom:none}
 .filter-col.on li::before{content:"○";color:var(--accent);position:absolute;left:0;font-weight:700}
 .filter-col.off li{color:var(--muted)}
-.filter-col.off li::before{content:"×";color:var(--dim);position:absolute;left:0}
+.filter-col.off li::before{content:"×";color:var(--note);position:absolute;left:0}
+
+/* MUST BE qualifier */
+.must-be{
+  margin-top:24px;
+  padding:20px 24px;
+  border:2px solid var(--note);
+  border-radius:6px;
+  font-size:14px;
+  line-height:2.0;
+  background:var(--note-soft);
+  color:var(--text);
+}
+.must-be strong{color:var(--note);font-weight:700}
 
 /* FOOTER */
 footer{
@@ -268,13 +411,15 @@ footer{
   .filter-grid{grid-template-columns:1fr}
   .testimonial{padding:24px}
   .cta{padding:36px 24px}
+  .personas{grid-template-columns:1fr 1fr}
+  .method-3{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
 <div class="draft-bar">
-  ⚠ DRAFT v0.1 — Eden 講師養成講座 LP 叩き台 ／ 数字・実績・カリキュラム詳細は要埋め込み
+  ⚠ DRAFT v0.2 — Eden 講師養成講座 LP 叩き台 ／ 数字・実績・カリキュラム詳細は要埋め込み
 </div>
 
 <!-- HERO -->
@@ -288,26 +433,60 @@ footer{
     </h1>
     <div class="hero-divider"></div>
     <p class="hero-sub">
-      「先生に会いたい」と言ってくれる子供たちと、<br>
-      一人ひとりの人生に伴走する家庭教師。<br>
-      Eden では、教科指導の枠を超えて、<br>
-      子供の魂が動く瞬間に立ち会える教育者を育てています。
+      Eden では、子供の魂が動く瞬間に立ち会える伴走型の家庭教師を育てています。<br>
+      「教える」だけでは終わらない、自分の存在ごと子供と関わる先生になる講座です。
     </p>
+    <div class="hero-promise">
+      ✓ 認定後は「高時給でもご依頼が途絶えない」状況を、Eden が用意します
+    </div>
   </div>
 </section>
 
-<!-- 共感パート -->
+<!-- ターゲット (4ペルソナ) -->
 <section>
   <div class="wrap">
-    <div class="section-eye">こんな想いを、ずっと抱えていませんか</div>
-    <h2>子供のことが <em>本当に好き</em> なのに、<br>その想いを仕事にする場所がない。</h2>
+    <div class="section-eye">この講座は、こんな方のために</div>
+    <h2>あなたは、<em>このいずれか</em>に当てはまりますか？</h2>
+    <p class="lead">既に教育に関わっているか、何らかの形で「教える経験」を持っている方を対象にしています。スキルゼロから始める方には、別の入口をおすすめしています。</p>
+
+    <div class="personas">
+      <div class="persona">
+        <div class="persona-num">PERSONA 01</div>
+        <p class="persona-line">現在、家庭教師・塾講師をしていて、</p>
+        <p class="persona-line"><span class="persona-em">プロとして更に収入とスキルを上げたい</span></p>
+      </div>
+      <div class="persona">
+        <div class="persona-num">PERSONA 02</div>
+        <p class="persona-line">育児・子育てがひと段落して、ご自身の子育て経験と社会経験を生かして、</p>
+        <p class="persona-line"><span class="persona-em">子供にも喜ばれながら高収入を得たい</span></p>
+      </div>
+      <div class="persona">
+        <div class="persona-num">PERSONA 03</div>
+        <p class="persona-line">塾や家庭教師での能力や教えるスキルには自信があるけれど、クライアントがいつ途切れるのか不安でたまらないので、</p>
+        <p class="persona-line"><span class="persona-em">安定的に生徒が欲しい</span></p>
+      </div>
+      <div class="persona">
+        <div class="persona-num">PERSONA 04</div>
+        <p class="persona-line">自分のしている仕事と、頂いてる金額の対価が見合っていないと</p>
+        <p class="persona-line"><span class="persona-em">悩んでいる</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 共感パート (実務+情緒の両面) -->
+<section>
+  <div class="wrap">
+    <div class="section-eye">こんな葛藤を、ずっと抱えていませんか</div>
+    <h2>子供のことが本当に好きで、教えるスキルもある。<br>でも、<em>仕事の現実</em> がそれに見合っていない。</h2>
     <ul class="echo">
+      <li>教えるスキルはある。でも、単発で終わって、子供の本当の変化を見届けられない</li>
+      <li>個人で生徒を取っているけれど、いつ途切れるか分からない不安が常にある</li>
+      <li>時給で頭打ち。長く深く関わりたいのに、その仕組みがどこにもない</li>
+      <li>子供と関わる仕事は楽しい。でも、対価が労働価値と釣り合っていない</li>
+      <li>教育観・子供観が合わない事務所で消耗している</li>
+      <li>自分の子育て経験を活かしたいけれど、未経験では雇ってもらえない</li>
       <li>「成績を上げる」だけの仕事に、心が満たされない</li>
-      <li>子供と関わるのが好き。でも、それだけで生きていけるのか分からない</li>
-      <li>誰かに「あなたで良かった」と言われる仕事をしたい</li>
-      <li>家庭や育児を大事にしながら、自分の存在価値も取り戻したい</li>
-      <li>子供と本気で向き合っている、同じ想いの仲間に出会いたい</li>
-      <li>教えることはできる。でも、本当に届いているのか自信が持てない</li>
     </ul>
   </div>
 </section>
@@ -333,10 +512,46 @@ footer{
   </div>
 </section>
 
+<!-- Eden 教育メソッド (傾聴・質問・承認) -->
+<section>
+  <div class="wrap">
+    <div class="section-eye">Eden の教育メソッド</div>
+    <h2>「教えるんじゃない、信じる」を、<br><em>実技</em> として身につける。</h2>
+    <p class="lead">情緒や愛情だけでは、子供の人生は変わりません。Eden は「子供の成長」を技術として捉え、再現可能な3つのコアスキルとして体系化しています。</p>
+
+    <div class="method-intro">
+      子供の成長のためには、<strong>「行動を促すかかわり方」</strong>が必須です。<br><br>
+      どうすれば子供は動くのか？──行動に必要なものは、<strong>動機</strong>。<br>
+      導くためには、その子の動機を理解することがとても大事です。<br>
+      <strong>その子のこだわりを理解するところが、すべてのスタート地点</strong>です。
+    </div>
+
+    <div class="method-3">
+      <div class="method-step">
+        <div class="method-step-num">1</div>
+        <h4>傾聴</h4>
+        <p>子供の表面的な言葉の奥にある「本当の声」を、ジャッジせずに聴き取るスキル。</p>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">2</div>
+        <h4>質問</h4>
+        <p>子供自身が、自分で答えにたどり着くための問いかけ方。教えるのではなく引き出す技術。</p>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">3</div>
+        <h4>承認</h4>
+        <p>子供が「自分の選択をしていい」と感じられる関わり方。動機が立ち上がる土台を作る。</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:32px">この3つは、知っているだけでは使えません。Eden の養成講座では、ロールプレイ・ケース演習・現役講師の指導を通じて、<em>あなたの実技として</em> 身につくまで磨きます。</p>
+  </div>
+</section>
+
 <!-- Eden の3つの本質 -->
 <section>
   <div class="wrap">
-    <div class="section-eye">なぜ Eden なのか</div>
+    <div class="section-eye">Eden 教育の3つの本質</div>
     <h2>Eden の家庭教師は、<br><em>教える人</em> ではありません。</h2>
     <p class="lead">私たちは、教科書の解説をする人を育てているのではありません。一人の子供の人生に、1年・3年と寄り添い、その子の「自分らしく生きる力」が育つ瞬間を見届ける伴走者を育てています。</p>
 
@@ -360,50 +575,43 @@ footer{
   </div>
 </section>
 
-<!-- 認定後の働き方 -->
+<!-- PROMISE: 高時給×ご依頼が途絶えない -->
 <section>
   <div class="wrap">
-    <div class="section-eye">認定後の働き方</div>
-    <h2><em>Eden 直属</em> の家庭教師として、<br>業務委託で稼働します。</h2>
-    <p class="lead">講座を修了し、Eden 認定家庭教師として認められた方には、Eden の生徒さんを担当していただきます。塾講師のような時給制ではなく、一人の子供と長く伴走する形の業務委託契約です。</p>
+    <div class="section-eye pro">この講座を通して、あなたが手に入れるもの</div>
+    <h2>高いスキル ＋<br><em class="pro">高時給でもご依頼が途絶えない状況</em>。</h2>
+    <p class="lead">Eden 認定家庭教師は、自分で営業・集客する必要がありません。Eden が大切に育てている家庭からのご依頼を、講師の方に直接マッチングする業務委託モデルです。</p>
 
-    <div class="placeholder">
-      <strong>[要確認・要記入]</strong> 以下の情報を埋めてください：
+    <div class="promise-block">
+      <div class="label">Promise — Eden 認定家庭教師として</div>
+      <h3>あなたが受け取るのは、<br><em>スキル × 信頼 × 安定</em> の3つです。</h3>
       <ul>
-        <li>1人あたりの担当料金 / 時間あたり単価</li>
-        <li>担当人数の目安（週○件 / 月○件）</li>
-        <li>稼働時間の自由度（オンライン / 訪問の比率）</li>
-        <li>月収目安（モデルケース：副業○万円 / 本業○万円）</li>
-        <li>契約期間・契約条件</li>
+        <li><strong>スキル</strong> ── 傾聴・質問・承認の3コアスキル＋Eden 独自の伴走メソッドが、ロールプレイで体得できる</li>
+        <li><strong>信頼</strong> ── 「家庭教師Eden」のブランドを背景に、家庭から直接依頼が入る</li>
+        <li><strong>安定</strong> ── 一人の子供と1年・3年と関わる長期契約モデル。短期で生徒が入れ替わらない</li>
+        <li><strong>営業ゼロ</strong> ── あなたは集客・営業しなくていい。Eden が常に新しい家庭を抱えている</li>
+        <li><strong>高時給</strong> ── 業務委託で時給◯,◯◯◯円〜<span style="color:var(--note);font-family:-apple-system,sans-serif;font-size:12px;margin-left:8px">[要確認]</span></li>
+        <li><strong>選ばれる側</strong> ── 認定講師の枠は限定。生徒の方が常に多い状況を保つ</li>
       </ul>
     </div>
 
-    <h3>大切にしている働き方の3つ</h3>
-    <div class="principles">
-      <div class="principle">
-        <div class="principle-num">01</div>
-        <h4>家族・自分の暮らしを最優先にする</h4>
-        <p>子供の成長を支える人が、自分の家族との時間を犠牲にしていてはいけない。Eden では「家庭ファースト」で稼働できる仕組みになっています。</p>
-      </div>
-      <div class="principle">
-        <div class="principle-num">02</div>
-        <h4>一人の子供と、長く深く関わる</h4>
-        <p>短期で多くの生徒を回す塾型ではなく、一人の子供と1年・3年と伴走する形。子供と先生の魂が共鳴し合うレベルでの関わりを大切にします。</p>
-      </div>
-      <div class="principle">
-        <div class="principle-num">03</div>
-        <h4>同じ志の仲間と、一緒に育っていく</h4>
-        <p>Eden の先生たちは、お互いを「同じものを大事にしている人」として尊重し合います。月1の合同勉強会・ケース共有会で、悩みも喜びも分かち合える場があります。</p>
-      </div>
+    <div class="placeholder">
+      <strong>[要確認・要記入]</strong> Promise セクションの数字確定：
+      <ul>
+        <li>業務委託の時給／件単価／月収目安</li>
+        <li>現在 Eden が抱えている家庭の数 / 待機リストの数</li>
+        <li>1年後・3年後の生徒継続率</li>
+        <li>講師1名あたりの平均担当数（人数 × 期間）</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- 講座の内容 -->
+<!-- 養成講座の内容 -->
 <section>
   <div class="wrap">
     <div class="section-eye">養成講座の内容</div>
-    <h2><em>Eden の教育</em> を体得するための<br>○ヶ月のプログラム。</h2>
+    <h2>Eden の教育を体得するための<br><em>○ヶ月のプログラム</em>。</h2>
 
     <div class="placeholder">
       <strong>[要確認・要記入]</strong> 講座カリキュラム詳細：
@@ -411,7 +619,7 @@ footer{
         <li>講座期間（1ヶ月 / 3ヶ月 / 6ヶ月 など）</li>
         <li>受講形態（オンライン / 通学 / 合宿）</li>
         <li>講座料金（一括／分割の選択肢）</li>
-        <li>各モジュールの題材（教育心理・子供の見方・親との伴走・教科指導の応用 等）</li>
+        <li>各モジュールの題材詳細</li>
         <li>認定試験の内容と基準</li>
         <li>講座後のフォロー体制</li>
       </ul>
@@ -422,12 +630,12 @@ footer{
       <div class="principle">
         <div class="principle-num">MODULE 01</div>
         <h4>Eden の教育思想を、自分の言葉で語れるようになる</h4>
-        <p>「一年で本当に変わる」とはどういうことか。私たちが大切にしている子供観・家庭観・教育観を、座学と対話を通じて自分のものにします。</p>
+        <p>「一年で本当に変わる」とはどういうことか。Eden が大切にしている子供観・家庭観・教育観を、座学と対話を通じて自分のものにします。</p>
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 02</div>
-        <h4>子供の見方・聴き方・問いかけ方</h4>
-        <p>「成績」の奥にある、その子の声を拾う技術。教育心理学・コーチングをベースにした、Eden 独自の関わり方を実例ロールプレイで身につけます。</p>
+        <h4>傾聴・質問・承認 ── 3つのコアスキルを体得する</h4>
+        <p>知識として知っているだけでは使えません。実際の子供との場面を再現したロールプレイ・ケース演習で、3つのスキルが身体に染み込むまで反復します。</p>
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 03</div>
@@ -436,45 +644,53 @@ footer{
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 04</div>
-        <h4>教科指導の枠を超えた、人生の伴走者になる</h4>
-        <p>教科を教える前に、その子の心が動く土台を作る。受験・進路・将来の夢。子供の「自分らしさ」が立ち上がる関わり方を実習します。</p>
+        <h4>教科指導 × 動機付け の応用</h4>
+        <p>受験指導・進路相談・教科の壁。子供の動機が立ち上がった瞬間に、教科のスキルがどう活きるか。Eden 流の教科×動機の組み立て方を実習します。</p>
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 05</div>
-        <h4>認定 → 業務委託契約 → 担当生徒スタート</h4>
-        <p>認定試験を経て、Eden 認定家庭教師として業務委託契約。最初は先輩講師がサポートしながら、担当生徒を持っていきます。</p>
+        <h4>認定試験 → 業務委託契約 → 担当生徒スタート</h4>
+        <p>認定試験を経て、Eden 認定家庭教師として業務委託契約。最初は先輩講師がメンターとしてサポートしながら、担当生徒を持っていきます。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 向き不向き -->
+<!-- 向き不向き (情弱排除) -->
 <section>
   <div class="wrap">
     <div class="section-eye">この講座は、誰のためのものか</div>
-    <h2>すべての人に、向いている講座ではありません。</h2>
-    <p class="lead">Eden が大切にしている子供観・家庭観に深く共鳴できる方にだけ、受けていただきたい講座です。</p>
+    <h2><em>すべての人</em> に、向いている講座ではありません。</h2>
+    <p class="lead">Eden の家庭教師は、ある程度の教育経験／プロ意識のある方を前提にしています。スキルゼロから始めたい方や、副業感覚で気軽に試したい方には、別の入口をおすすめしています。</p>
+
+    <div class="must-be">
+      <strong>応募の必須条件：</strong> 何らかの形で「子供に教える経験」を持っていること（家庭教師／塾講師／教員／コーチング／自分の子育て経験 等。期間や形式は不問）。<br>
+      未経験で、ゼロから教えるスキルを身につけたい方は、まずは個別塾でのアルバイト等で経験を積むことをおすすめします。
+    </div>
 
     <div class="filter-grid">
       <div class="filter-col on">
         <h4>こんな方に向いています</h4>
         <ul>
+          <li>既に教える経験があり、プロとしてさらにスキル・収入を上げたい</li>
           <li>子供の話を聞くと、自分の心が動く</li>
           <li>成績の数字より、その子の表情の変化を喜べる</li>
-          <li>「あなたに会えてよかった」と言われたら、それで十分だと思える</li>
-          <li>教育・心理・コーチング・福祉のいずれかに関心がある</li>
+          <li>個人で取るのは限界。自分で営業しなくていい仕組みが欲しい</li>
+          <li>クライアントの不安定さに疲れ、安定的に生徒を持ちたい</li>
           <li>自分の家族・暮らしを大切にしながら、深く誰かに関わる仕事を探している</li>
-          <li>同じ想いの仲間と、一緒に育っていきたい</li>
+          <li>「あなたに会えてよかった」と言われる仕事に、本気で取り組みたい</li>
         </ul>
       </div>
       <div class="filter-col off">
         <h4>こんな方には向きません</h4>
         <ul>
-          <li>短期で大きく稼ぐことを最優先したい</li>
-          <li>一人ひとりではなく、効率や規模で成果を上げたい</li>
+          <li>未経験で、ゼロから教えるスキルを身につけたい</li>
+          <li>短期で派手に稼ぐことを最優先したい</li>
+          <li>副業感覚で「とりあえず試したい」だけ</li>
+          <li>自己流に固執し、Eden のメソッドを学ぶ姿勢が薄い</li>
           <li>子供との関わりは、表面でいいと思っている</li>
-          <li>自分のやり方を貫きたい / 学ぶ姿勢が薄い</li>
           <li>「教える側」と「教わる側」の上下がはっきりした関係を求めている</li>
+          <li>子供の成長より、自分の話を聞いてほしいタイプ</li>
         </ul>
       </div>
     </div>
@@ -517,18 +733,21 @@ footer{
       <h3>Eden 認定家庭教師 養成講座<br>個別説明会</h3>
       <p>
         オンライン (Zoom) で 60 分。<br>
-        担当：居村 ／ Eden 認定講師 [予定]
+        担当：居村 ／ Eden 認定講師 [予定]<br>
+        <span style="font-family:-apple-system,sans-serif;font-size:12px;color:var(--note);letter-spacing:0.05em">※ 教育経験のある方限定でご案内しています</span>
       </p>
       <a href="#" class="cta-btn">[要設定] 個別説明会を予約する →</a>
       <div class="cta-note">無料。日程はカレンダーから選択いただけます。</div>
     </div>
 
     <div class="placeholder" style="margin-top:24px">
-      <strong>[要設計]</strong> 予約フォームのクオリフィケーション項目を決めましょう：
+      <strong>[要設計]</strong> 予約フォームのクオリフィケーション項目（情弱排除を兼ねる）：
       <ul>
         <li>姓名 / メール / 電話</li>
-        <li>現在の職業（教員 / 塾講師 / 主婦 / 学生 / その他）</li>
-        <li>子供との関わりの経験</li>
+        <li>現在の職業（教員 / 塾講師 / 家庭教師 / 主婦・育児経験者 / その他）</li>
+        <li><strong>子供との関わりの経験年数</strong>（必須・記述式）</li>
+        <li>担当した子供の人数・年齢層</li>
+        <li>教育・心理・コーチングの学習経験</li>
         <li>Eden を知ったきっかけ</li>
         <li>講座への関心度（情報収集中 / 受講前提 / 紹介者あり）</li>
         <li>日時選択</li>
@@ -538,7 +757,7 @@ footer{
 </section>
 
 <footer>
-  <p>Eden 認定家庭教師 養成講座 LP — Draft v0.1 — 2026.05.08</p>
+  <p>Eden 認定家庭教師 養成講座 LP — Draft v0.2 — 2026.05.08</p>
   <p style="margin-top:6px">株式会社 Eden / Internal study draft / noindex</p>
 </footer>
 
