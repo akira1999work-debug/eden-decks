@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<title>HTWF構築講座V3 リプレイファネル構造解剖</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#ffffff;
+  --text:#1a1a1a;
+  --muted:#555;
+  --dim:#888;
+  --line:#e5e5e5;
+  --line-soft:#f0f0f0;
+  --card:#fafafa;
+  --accent:#b45309;
+  --accent-soft:#fef3c7;
+  --diff:#0369a1;
+  --diff-soft:#e0f2fe;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic","Noto Sans JP",sans-serif;
+  line-height:1.75;
+  font-size:15px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+header{padding:48px 24px 32px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;color:var(--accent);letter-spacing:0.08em;font-weight:600;margin-bottom:8px;text-transform:uppercase}
+h1{font-size:clamp(24px,3.5vw,32px);font-weight:800;line-height:1.4;margin-bottom:12px}
+header p{color:var(--muted);font-size:14px;line-height:1.8;max-width:680px}
+.meta{margin-top:16px;font-size:12px;color:var(--dim)}
+.meta a{color:var(--accent);text-decoration:none}
+.meta a:hover{text-decoration:underline}
+
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:22px;font-weight:800;line-height:1.5;margin-bottom:8px}
+section .sub{color:var(--muted);font-size:14px;margin-bottom:24px;max-width:720px;line-height:1.9}
+.section-num{font-size:12px;color:var(--accent);letter-spacing:0.1em;font-weight:700;margin-bottom:6px}
+h3{font-size:16px;font-weight:800;margin:24px 0 8px}
+h4{font-size:14px;font-weight:700;margin-bottom:6px}
+
+/* DIFF SECTION (ハイライト) */
+.diff-section{background:var(--diff-soft);border-bottom:1px solid var(--line)}
+.diff-section .section-num{color:var(--diff)}
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:16px;border:1px solid var(--line);background:var(--bg)}
+.diff-col{padding:20px}
+.diff-col:first-child{border-right:1px solid var(--line)}
+.diff-col h4{font-size:13px;color:var(--diff);font-weight:700;letter-spacing:0.05em;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line-soft)}
+.diff-col ul{list-style:none;padding:0}
+.diff-col ul li{font-size:13px;line-height:1.85;padding:6px 0 6px 16px;position:relative;color:var(--muted)}
+.diff-col ul li::before{content:"・";position:absolute;left:0;color:var(--diff);font-weight:700}
+.diff-col strong{color:var(--text)}
+
+/* AT A GLANCE GRID */
+.glance-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.gl{
+  display:block;
+  text-decoration:none;color:inherit;
+  border:1px solid var(--line);
+  padding:12px 14px;
+  border-radius:6px;
+  background:var(--bg);
+  transition:border-color 0.15s,background 0.15s;
+}
+.gl:hover{border-color:var(--accent);background:#fffbf3}
+.gl-time{font-size:11px;color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:0.05em;margin-bottom:4px}
+.gl-name{font-size:13px;font-weight:600;color:var(--text);line-height:1.5}
+
+/* TABLE */
+table{
+  width:100%;border-collapse:collapse;
+  margin-top:8px;
+  font-size:14px;
+}
+th{
+  text-align:left;font-weight:700;
+  padding:10px 14px;
+  background:var(--card);
+  border-bottom:1px solid var(--line);
+  font-size:12px;letter-spacing:0.04em;
+  color:var(--muted);
+}
+td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--line-soft);
+  vertical-align:top;line-height:1.8;
+}
+td.t-num{font-variant-numeric:tabular-nums;color:var(--accent);font-weight:700;width:80px;font-size:13px}
+td.t-name{font-weight:700;width:200px}
+strong{color:var(--text)}
+em{color:var(--accent);font-style:normal;font-weight:600}
+em.diff{color:var(--diff)}
+
+ul.simple{list-style:none;padding:0;margin:8px 0}
+ul.simple li{
+  padding:10px 0 10px 20px;
+  position:relative;
+  border-bottom:1px solid var(--line-soft);
+  font-size:14px;line-height:1.8;
+}
+ul.simple li:last-child{border-bottom:none}
+ul.simple li::before{
+  content:"・";position:absolute;left:0;color:var(--accent);font-weight:700;
+}
+ul.numbered{list-style:none;padding:0;margin:8px 0;counter-reset:item}
+ul.numbered li{
+  padding:14px 0 14px 36px;
+  position:relative;
+  border-bottom:1px solid var(--line-soft);
+  counter-increment:item;
+}
+ul.numbered li:last-child{border-bottom:none}
+ul.numbered li::before{
+  content:counter(item,decimal-leading-zero);
+  position:absolute;left:0;top:14px;
+  font-size:12px;color:var(--accent);font-weight:700;
+  font-variant-numeric:tabular-nums;
+  letter-spacing:0.05em;
+}
+ul.numbered h4{font-size:14px;margin-bottom:4px}
+ul.numbered p{font-size:13px;color:var(--muted);line-height:1.85}
+
+/* FUNNEL */
+.funnel{margin-top:8px}
+.fstep{
+  padding:14px 0;
+  border-bottom:1px solid var(--line-soft);
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:16px;
+  align-items:start;
+}
+.fstep:last-child{border-bottom:none}
+.fstep-num{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:0.05em}
+.fstep-title{font-weight:700;margin-bottom:4px;font-size:14px}
+.fstep-meta{font-size:13px;color:var(--muted);line-height:1.85}
+code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:12px;background:var(--card);
+  padding:1px 6px;border-radius:3px;color:var(--text);
+}
+
+.callout{
+  padding:16px 18px;background:var(--card);
+  border-left:3px solid var(--accent);
+  margin-top:24px;font-size:13px;line-height:1.85;
+}
+.callout.diff{background:var(--diff-soft);border-left-color:var(--diff)}
+
+.cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:8px}
+.card{
+  border:1px solid var(--line);padding:18px;border-radius:6px;
+}
+.card-num{font-size:11px;color:var(--accent);font-weight:700;letter-spacing:0.1em;margin-bottom:6px}
+.card h4{font-size:14px;margin-bottom:8px;line-height:1.5}
+.card p{font-size:13px;color:var(--muted);line-height:1.8}
+
+nav.toc{
+  padding:18px 24px;background:var(--card);border-bottom:1px solid var(--line);
+  font-size:12px;
+}
+.toc-list{display:flex;gap:18px;flex-wrap:wrap;list-style:none}
+.toc-list a{color:var(--muted);text-decoration:none}
+.toc-list a:hover{color:var(--accent)}
+
+/* TESTIMONIAL TABLE */
+.tm-table td.tm-num{width:48px}
+.tm-table td.tm-pos{width:200px;color:var(--muted)}
+
+footer{
+  padding:36px 24px;
+  text-align:center;color:var(--dim);font-size:12px;
+}
+
+@media(max-width:700px){
+  .glance-grid{grid-template-columns:repeat(2,1fr)}
+  .cards-2{grid-template-columns:1fr}
+  .diff-grid{grid-template-columns:1fr}
+  .diff-col:first-child{border-right:none;border-bottom:1px solid var(--line)}
+  .fstep{grid-template-columns:1fr;gap:4px}
+  td.t-name{width:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">FUNNEL ANALYSIS · 2026.05.08</div>
+    <h1>HTWF構築講座 V3<br>リプレイファネル構造解剖</h1>
+    <p>同じ Strategic Funnel Club（株式会社LASTPASS／大賀聖也）の主力プロダクトのリプレイ販売ファネル。先日分析した「シネマティックウェビナー」とは異なる<em>リプレイ型 × 直販</em>パターン。</p>
+    <p class="meta">対象: <a href="https://utg.strategicfunnelclub.com/p/htwfv3_replay01" target="_blank" rel="noopener">utg.strategicfunnelclub.com/p/htwfv3_replay01</a> ／ 講師: 大賀聖也（株式会社LASTPASS）／ 動画 73.8分</p>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <ul class="toc-list">
+      <li><a href="#diff">⭐ シネマ版との差分</a></li>
+      <li><a href="#funnel">ファネル構造</a></li>
+      <li><a href="#lp">LP構成</a></li>
+      <li><a href="#chapters">本編16チャプター</a></li>
+      <li><a href="#testimonials">8人の事例動画</a></li>
+      <li><a href="#offer">オファー設計</a></li>
+      <li><a href="#takeaway">Edenへの示唆</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- DIFF SECTION -->
+<section id="diff" class="diff-section">
+  <div class="wrap">
+    <div class="section-num">差分 — KEY DIFFERENCES</div>
+    <h2>シネマティックウェビナー版との違い</h2>
+    <p class="sub">基本骨格（Hook→Problem→3 Secrets→3 Paths Close）はほぼ同じだが、<em class="diff">ファネル位置とコンバージョン圧</em>がまったく違う。</p>
+
+    <div class="diff-grid">
+      <div class="diff-col">
+        <h4>Cinematic Webinar (LP→optin→watch→book)</h4>
+        <ul>
+          <li><strong>新規流入</strong> opt-in funnel：メール1項目で無料視聴へ誘導</li>
+          <li><strong>講師2名</strong> 成瀬(YouTube9万)＋大賀の対談形式で権威分散</li>
+          <li>本編 <strong>49.8分／10チャプター</strong></li>
+          <li>視聴ページに到達後、 <strong>LINE QR が並行で開く</strong>（リスト二重化）</li>
+          <li>予約フォーム必須項目: 姓名・メール・携帯・<strong>年商規模</strong>・<strong>SNS URL</strong>・日時 = 6項目</li>
+          <li>テスティモニアル: なし（数字証拠のみ）</li>
+          <li>提示する商品: <strong>「シネマティックウェビナー設計セッション」</strong>（"設計プランだけ持ち帰り" 売り込まない宣言）</li>
+          <li>緊急性: 暗黙の希少性（"最後まで観た本気の方"）</li>
+          <li>決済: なし（個別相談 → 後段クロージング想定）</li>
+        </ul>
+      </div>
+      <div class="diff-col">
+        <h4>HTWF Replay (URL知ってる人だけ→直接視聴→直接予約)</h4>
+        <ul>
+          <li><strong>既存warm リード</strong>向け replay funnel：URLに <code>?rid=…</code> パラメータ付き</li>
+          <li><strong>講師1名</strong> 大賀単独。背後に <em class="diff">SFCサクセスチーム</em>（全員8桁-9桁プレイヤー）の組織訴求</li>
+          <li>本編 <strong>73.8分／16チャプター</strong></li>
+          <li><strong>opt-in なし</strong>。LP内にそのまま動画埋め込み</li>
+          <li>予約フォーム項目は同形式と推測（一覧未到達）</li>
+          <li>テスティモニアル動画 <strong>8人</strong> ＋写真ポスター付き／単価Up・累計売上の数字付き</li>
+          <li>提示する商品: <strong>「月商8桁システム構築セッション」</strong>（通常 ¥39,000 → 「いまだから無料」、売り込まない宣言なし）</li>
+          <li>緊急性: <em class="diff">30分カウントダウン</em> + 自動シナリオ起動（<code>add_scenario</code>）</li>
+          <li>決済: <em class="diff">Stripe + GoPay 直結</em> の準備あり（後段で直販可能）</li>
+          <li>2つの非売品ボーナス：当日アーカイブ映像／参加者55名の舞台裏アーカイブ</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout diff">
+      <strong>本質的な違い：</strong> シネマ版は <em class="diff">広告→新規リード獲得</em> のための「フロントエンド／コラボ商品」、HTWF版は <em class="diff">既存リードへのバックエンド販売</em>。同じ著者・同じ Meta Pixel ID（<code>1044556137855942</code>）・同じUtage基盤を使い、<strong>ファネルの異なる段階で別資産として運用している</strong>。
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section id="funnel">
+  <div class="wrap">
+    <div class="section-num">01 — ファネル構造</div>
+    <h2>リプレイ型ファネルの動線</h2>
+    <p class="sub">パーソナライズされたURL（<code>?rid=92czcENQtOLR</code>）を踏むことが入口。どこかの過去ステップ（広告／別ウェビナー登録／LINE配信など）で取得済みのリードに対し、replay 配信される。</p>
+
+    <div class="funnel">
+      <div class="fstep">
+        <div class="fstep-num">STEP 0</div>
+        <div>
+          <div class="fstep-title">前段：別ファネルでリード取得</div>
+          <div class="fstep-meta">広告／メルマガ／LINE／別ウェビナーで取得済みの warm リードに対して、replay URL を配信。<code>rid</code> パラメータで個別追跡。</div>
+        </div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-num">STEP 1</div>
+        <div>
+          <div class="fstep-title">リプレイLP <code>/p/htwfv3_replay01?rid=…</code></div>
+          <div class="fstep-meta">LP に到達した瞬間に動画が再生可能。opt-in なし。</div>
+        </div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-num">STEP 2</div>
+        <div>
+          <div class="fstep-title">本編動画 73.8分（utage <code>zGp9vc2PKThi</code>）</div>
+          <div class="fstep-meta">視聴開始から<em class="diff">30分後</em>に <code>add_scenario</code> 自動実行（メルマガシナリオ追加）。視聴ページ内で完結。</div>
+        </div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-num">STEP 3</div>
+        <div>
+          <div class="fstep-title">予約 → 個別相談ZOOM</div>
+          <div class="fstep-meta">「月商8桁システム構築セッション」（通常 ¥39,000 → 無料）に予約。SFCサクセスチームメンバー（8桁-9桁プレイヤー）が担当。</div>
+        </div>
+      </div>
+      <div class="fstep">
+        <div class="fstep-num">STEP 4</div>
+        <div>
+          <div class="fstep-title">高単価本商品クロージング → Stripe / GoPay 決済</div>
+          <div class="fstep-meta">LPに <code>js.stripe.com</code> + <code>widget.gopay.jp</code> が読み込まれている。当日もしくは後日に直接決済可能なフローが整備されている。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LP STRUCTURE -->
+<section id="lp">
+  <div class="wrap">
+    <div class="section-num">02 — LP構成</div>
+    <h2>1ページ完結型 LP の縦構成</h2>
+    <p class="sub">opt-in がない代わりに、LP の中に「視聴 → 証拠 → オファー → 予約」が一気通貫で並ぶ。</p>
+
+    <table>
+      <thead><tr><th></th><th>セクション</th><th>内容</th></tr></thead>
+      <tbody>
+        <tr><td class="t-num">01</td><td class="t-name">Hero (ヒーローコピー)</td><td>「SNS投稿もセミナーもゼロ。たった1つのシナリオだけで <em>月商8桁を33ヶ月安定化した秘密</em>」／「最後まで観た方だけに特別なご案内があります」</td></tr>
+        <tr><td class="t-num">02</td><td class="t-name">本編動画</td><td>utage 動画 73.8分、サムネ／コントロールあり、<em class="diff">30分カウントダウン</em>付き</td></tr>
+        <tr><td class="t-num">03</td><td class="t-name">チャプター16個</td><td>00:17 〜 70:19 まで、見出しを全て表示（離脱防止＋見どころ提示）</td></tr>
+        <tr><td class="t-num">04</td><td class="t-name">オファー説明</td><td>「月商8桁システム構築セッション」の詳細／<em>通常 ¥39,000 → "いまだから無料"</em>／2つの非売品アーカイブをボーナス付与</td></tr>
+        <tr><td class="t-num">05</td><td class="t-name">申込手順5ステップ</td><td>カレンダー選択 → フォーム入力 → 自動予約 → 当日案内 → ZOOM参加</td></tr>
+        <tr><td class="t-num">06</td><td class="t-name">テスティモニアル動画 8人</td><td>各人にダイジェスト動画＋ポスター画像＋実績ヘッドライン3行</td></tr>
+        <tr><td class="t-num">07</td><td class="t-name">講師プロフィール</td><td>大賀聖也（株式会社LASTPASS 代表）／単独。SFCサクセスチームへの言及で組織訴求</td></tr>
+        <tr><td class="t-num">08</td><td class="t-name">フッター</td><td>プライバシー／特商法／会社概要／2026 Strategic Funnel CLUB</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CHAPTERS -->
+<section id="chapters">
+  <div class="wrap">
+    <div class="section-num">03 — 本編チャプター</div>
+    <h2>73.8分を16ブロックに分解</h2>
+    <p class="sub">シネマ版の10ブロックより細かい。ROAS実績の即提示で始まり、<em>パルス型消費</em>・<em>ファネル数学</em>などのコンセプト名を投入し、3つのコア要素（ハイチケット開発／戦略的ファネル設計／ハイチケットクロージング）に集約する。</p>
+
+    <div class="glance-grid">
+      <div class="gl"><div class="gl-time">00:17</div><div class="gl-name">ROAS 4,951%のファネル実績公開</div></div>
+      <div class="gl"><div class="gl-time">01:52</div><div class="gl-name">こんな悩みありませんか？</div></div>
+      <div class="gl"><div class="gl-time">06:27</div><div class="gl-name">HTWFが最強だと断言できる理由</div></div>
+      <div class="gl"><div class="gl-time">08:16</div><div class="gl-name">パルス型消費と古い理論の限界</div></div>
+      <div class="gl"><div class="gl-time">12:21</div><div class="gl-name">従来型集客 vs HTWFのファネル数学</div></div>
+      <div class="gl"><div class="gl-time">24:38</div><div class="gl-name">HTWF 3つのコアとは</div></div>
+      <div class="gl"><div class="gl-time">25:00</div><div class="gl-name">コア1: ハイチケット開発</div></div>
+      <div class="gl"><div class="gl-time">29:37</div><div class="gl-name">オーガニック集客が飽和した現実</div></div>
+      <div class="gl"><div class="gl-time">37:47</div><div class="gl-name">なぜ今ハイチケットが必須なのか</div></div>
+      <div class="gl"><div class="gl-time">40:35</div><div class="gl-name">ハイチケット化3つのメリット</div></div>
+      <div class="gl"><div class="gl-time">47:10</div><div class="gl-name">コア2: 戦略的ファネル設計</div></div>
+      <div class="gl"><div class="gl-time">51:13</div><div class="gl-name">広告代理店が知られたくない衝撃の事実</div></div>
+      <div class="gl"><div class="gl-time">55:38</div><div class="gl-name">ファネル構築</div></div>
+      <div class="gl"><div class="gl-time">57:08</div><div class="gl-name">コア3: ハイチケットクロージング</div></div>
+      <div class="gl"><div class="gl-time">61:32</div><div class="gl-name">ワンファネルで月商8桁を安定化</div></div>
+      <div class="gl"><div class="gl-time">70:19</div><div class="gl-name">あなたの前にある3つの道</div></div>
+    </div>
+
+    <div class="callout">
+      <strong>共通パターン：</strong> 最終チャプター「<em>3つの道</em>」はシネマ版と同一クロージング手法。「何もしない／自己流／我々と」の三択で選択肢を絞り込む大賀の鉄板テンプレ。
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-num">04 — テスティモニアル動画 8人</div>
+    <h2>動画証言の集中投下</h2>
+    <p class="sub">シネマ版にはなかった大きな差。8人それぞれに専用ダイジェスト動画＋ポスター画像＋3行ヘッドライン（Before→After→数字）。テキストの社会的証明よりも遥かに強い。</p>
+
+    <table class="tm-table">
+      <thead><tr><th></th><th>名前 / ポジション</th><th>BEFORE → AFTER（要約）</th></tr></thead>
+      <tbody>
+        <tr><td class="t-num">01</td><td class="tm-pos">片付けの先生 / ようこさん</td><td>SNSフォロワー25万人いるが収益化に苦戦 → 月7000万＋サブスク×クロスセルで月500万</td></tr>
+        <tr><td class="t-num">02</td><td class="tm-pos">経営コンサル / あみさん</td><td>「名古屋発ヒット」セミナー集客の急減 → 高単価で売れ続ける化</td></tr>
+        <tr><td class="t-num">03</td><td class="tm-pos">パリコレ表現者 / 俊介さん</td><td>広告未経験・SNS集客なし・紹介依存 → 自己集客で月8桁／累計6000万以上</td></tr>
+        <tr><td class="t-num">04</td><td class="tm-pos">自分軸ダイエット / 白井さん</td><td>脱SNS・アメブロ依存／アルゴリズムから解放 → 月1300万・年商7000万達成</td></tr>
+        <tr><td class="t-num">05</td><td class="tm-pos">自動化の専門家 / みゆさん</td><td>セミナー地獄から抜け出す → 最高月商更新・億ごえ達成／累計8900万以上の売上UP</td></tr>
+        <tr><td class="t-num">06</td><td class="tm-pos">サロン経営コンサル / 今田さん</td><td>低単価の代行サービスで疲弊 → 最高月商1200万・年商2倍／累計1億以上のUP</td></tr>
+        <tr><td class="t-num">07</td><td class="tm-pos">外部の先生 / 大切さん</td><td>年商4000万→月商2倍／99.9%が外部運用するファネルだけで生</td></tr>
+        <tr><td class="t-num">08</td><td class="tm-pos">マネースクール / りおなさん</td><td>アメブロ&インスタ依存 → Meta広告の自動で年商3倍／40代以前に</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout">
+      <strong>パターン抽出：</strong> 全員 ① 既存ビジネスがあり ② 一定の悩みで止まっていて ③ 数字で改善した、の同じ型。<em>before数字 → after数字</em> の対比で「自分も該当する」と思わせる構造。
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section id="offer">
+  <div class="wrap">
+    <div class="section-num">05 — オファー設計</div>
+    <h2>「月商8桁システム構築セッション」の組み立て</h2>
+    <p class="sub">シネマ版の「設計セッション」と同じカテゴリだが、価格訴求と特典構成が違う。</p>
+
+    <div class="cards-2">
+      <div class="card">
+        <div class="card-num">CORE OFFER</div>
+        <h4>個別コンサルティング・セッション</h4>
+        <p>「ハイチケットウェビナーファネルがあなたのビジネスでも機能するのか、面で相談できる機会」。担当は <em>SFCサクセスチームメンバー（全員8桁-9桁プレイヤー）</em>。</p>
+      </div>
+      <div class="card">
+        <div class="card-num">PRICE FRAMING</div>
+        <h4>通常 ¥39,000 → "いまだから無料"</h4>
+        <p>「無料です」と言わずに「通常 ¥39,000 → 今だから無料」と二段で見せて<em>受領者がトクしている感</em>を作る。シネマ版は最初から無料前提だが、こちらは価格を立ててから 0円にする。</p>
+      </div>
+      <div class="card">
+        <div class="card-num">BONUS 1</div>
+        <h4>当日動画のアーカイブ映像（非売品）</h4>
+        <p>セッション当日の自分自身の映像が後で見直せる、という個別資産化のフック。</p>
+      </div>
+      <div class="card">
+        <div class="card-num">BONUS 2</div>
+        <h4>裏ファネル・ブランドのアーカイブ（非売品）</h4>
+        <p>「参加者55名で開催した舞台裏の実録」＝<em>会員専用コンテンツへのアクセス権</em>を擬似的に渡す。所属感の予告。</p>
+      </div>
+    </div>
+
+    <h3>申込手順 5ステップ</h3>
+    <ul class="numbered">
+      <li><h4>カレンダーから希望の予約枠を選ぶ</h4></li>
+      <li><h4>フォーム入力で予約枠を確保する</h4></li>
+      <li><h4>自動でカレンダーに予約される</h4></li>
+      <li><h4>当日に案内サイトで動作する</h4></li>
+      <li><h4>当日にZOOMから参加する</h4></li>
+    </ul>
+    <p class="sub" style="margin-top:8px">「来れない場合は『次の月』を選ぶ」「ご自分の場合はキャンセル待ちです」=<em>枠の希少性</em>を申込ステップ自体で強調。</p>
+  </div>
+</section>
+
+<!-- TAKEAWAY -->
+<section id="takeaway">
+  <div class="wrap">
+    <div class="section-num">06 — Eden 講師養成講座への示唆</div>
+    <h2>2つのファネル型から拾えるもの</h2>
+    <p class="sub">Eden 講師養成講座を高単価教育商品として設計するなら、<em>新規リード獲得</em>と<em>既存リードへの直販</em>の2系統を分けて、それぞれに別ファネルを当てるべき。</p>
+
+    <table>
+      <thead><tr><th>用途</th><th>採用パターン</th><th>理由</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="t-name">新規流入<br>（広告 / SNS）</td>
+          <td><em>Cinematic型</em><br>opt-in LP → 視聴ページ → 予約</td>
+          <td>初見の冷たいリードはまずメール1項目で取得し、本編動画＋予約フォームで温める。教材費1500万（相場）→ 10分の1の比較フレーミングが使える。</td>
+        </tr>
+        <tr>
+          <td class="t-name">既存リード<br>（メルマガ / LINE）</td>
+          <td><em>HTWF型</em><br>replay LP（rid付き）→ 直接視聴 → 予約 → 直販</td>
+          <td>既に温まったリードに opt-in は摩擦。replay URL を配信して LP内で完結させる。Stripe / GoPay 直結で当日決済可能なフローを準備。</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>両パターン共通で持ち込める7要素</h3>
+    <ul class="numbered">
+      <li>
+        <h4>「最後まで観た本気の方だけ限定」フレーズ</h4>
+        <p>視聴完了率を上げ、本気度の自己選別を促す。両者とも採用。</p>
+      </li>
+      <li>
+        <h4>チャプター見出しの全公開</h4>
+        <p>「いつ何が学べるか」を5分刻みで提示し、最後にCTAが出ると予告。離脱防止。</p>
+      </li>
+      <li>
+        <h4>3つの道クロージング</h4>
+        <p>「何もしない／自己流／我々」で選択肢を3つに絞り、自己流の不合理さを論理的に潰す。</p>
+      </li>
+      <li>
+        <h4>3つのコア（または3 Secrets）に集約</h4>
+        <p>HTWFは ① ハイチケット開発 ② 戦略的ファネル設計 ③ ハイチケットクロージング、シネマ版は ① 環境構築 ② 鉄板シナリオ ③ 1本でブランドリフト。<em>必ず3つに丸める</em>。</p>
+      </li>
+      <li>
+        <h4>講師プロフィールの「4年間ずっと平日毎朝8:45からZOOMグルコン」</h4>
+        <p>稀有な継続性アピール（=お買い得な労働量の証明）。Eden流に置き換え可能。</p>
+      </li>
+      <li>
+        <h4>テスティモニアルは <em>Before数字 → After数字</em> 形式</h4>
+        <p>シネマ版より HTWF 版の方が遥かに強い。<em>動画 + ポスター + 3行ヘッドライン</em> をテンプレにして、Eden の卒業生事例を構造化する。</p>
+      </li>
+      <li>
+        <h4>個別相談を「売り込まない宣言」または「通常 ¥X,000 → 今だけ無料」で訴求</h4>
+        <p>シネマ版は前者、HTWF版は後者。ターゲットの温度に応じて使い分け。<em>Eden VIPマスター¥880,000 への導線</em>として個別相談を設計する場合、新規層には前者、既存層には後者を当てる。</p>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <strong>提案：</strong> Eden 講師養成講座のファネルは、まず Cinematic型で 1本の opt-in LP ＋ 視聴ページ ＋ 予約フォーム を組む。広告で温度の上がったリードに対して、HTWF型の replay LP を別配信する 2系統運用が現実的。<em>予約フォームの絞り込み項目（年商・SNS URL）は Eden では「現在の指導生徒数」「SNS / YouTube ID」に置き換える</em>と、講師経験者だけ通せる。
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Funnel Analysis · utg.strategicfunnelclub.com · Internal study · noindex · 2026.05.08</p>
+  </div>
+</footer>
+
+</body>
+</html>
