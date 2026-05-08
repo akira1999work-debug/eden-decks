@@ -58,17 +58,46 @@ body{
   color:var(--accent);
   letter-spacing:0.3em;
   font-weight:600;
-  margin-bottom:24px;
+  margin-bottom:28px;
   text-align:center;
 }
-.hero-statement{
-  font-size:clamp(22px,3.4vw,32px);
-  font-weight:600;
-  line-height:1.7;
+.hero-title{
+  font-size:clamp(30px,5.5vw,52px);
+  font-weight:700;
+  line-height:1.45;
   text-align:center;
   margin-bottom:32px;
   letter-spacing:0.04em;
+  color:var(--text);
+}
+.hero-title em{
+  font-style:normal;
   color:var(--accent);
+  font-weight:800;
+}
+.hero-undertitle{
+  text-align:center;
+  font-size:clamp(14px,1.9vw,17px);
+  color:var(--muted);
+  line-height:2.0;
+  max-width:620px;
+  margin:0 auto 16px;
+  letter-spacing:0.04em;
+}
+.hero-undertitle strong{
+  color:var(--accent);
+  font-weight:700;
+  border-bottom:1px solid #fde68a;
+  padding-bottom:1px;
+}
+.hero-statement{
+  font-size:clamp(19px,2.7vw,25px);
+  font-weight:600;
+  line-height:1.7;
+  text-align:center;
+  margin-bottom:24px;
+  letter-spacing:0.04em;
+  color:var(--text);
 }
 .hero-but{
   text-align:center;font-size:14px;color:var(--muted);
@@ -441,13 +470,26 @@ footer{
 <body>
 
 <div class="draft-bar">
-  ⚠ DRAFT v0.5 — Eden 講師養成講座 LP 叩き台 ／ 担当替え・ヤキモキ痛みと「ありがとう／先生大好きが直接届く」を追加
+  ⚠ DRAFT v0.6 — Eden 講師養成講座 LP 叩き台 ／ Heroタイトル「中学受験講師の、全く新しい自由な働き方」
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Eden 認定家庭教師 養成講座 / 中学受験コース</div>
+
+    <h1 class="hero-title">
+      中学受験講師の、<br>
+      <em>全く新しい "自由な働き方"</em>。
+    </h1>
+
+    <p class="hero-undertitle">
+      大手塾でもない、フリーランスの不安定でもない。<br>
+      <strong>偏差値40台の逆転合格</strong>に、自宅オンラインで本気で伴走する ──<br>
+      新しい中学受験家庭教師の在り方を、Eden は形にしました。
+    </p>
+
+    <div class="hero-divider"></div>
 
     <p class="hero-statement">
       「勉強が好き」<br>
@@ -818,7 +860,7 @@ footer{
 </section>
 
 <footer>
-  <p>Eden 認定家庭教師 養成講座 LP — Draft v0.5 — 2026.05.08</p>
+  <p>Eden 認定家庭教師 養成講座 LP — Draft v0.6 — 2026.05.08</p>
   <p style="margin-top:6px">株式会社 Eden / Internal study draft / noindex</p>
 </footer>
 
