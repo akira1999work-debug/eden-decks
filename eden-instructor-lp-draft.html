@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
-<title>Eden 認定家庭教師 養成講座 LP（叩き台 v0.2）</title>
+<title>Eden 認定家庭教師 養成講座 LP（叩き台 v0.3）</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -49,9 +49,9 @@ body{
 /* HERO */
 .hero{
   padding:80px 28px 64px;
-  text-align:center;
   border-bottom:1px solid var(--line);
 }
+.hero-inner{max-width:760px;margin:0 auto}
 .hero-eyebrow{
   font-family:-apple-system,sans-serif;
   font-size:12px;
@@ -59,40 +59,70 @@ body{
   letter-spacing:0.3em;
   font-weight:600;
   margin-bottom:24px;
+  text-align:center;
 }
-.hero h1{
-  font-size:clamp(28px,4.5vw,42px);
+.hero-statement{
+  font-size:clamp(22px,3.4vw,32px);
   font-weight:600;
-  line-height:1.5;
+  line-height:1.7;
+  text-align:center;
   margin-bottom:32px;
   letter-spacing:0.04em;
-}
-.hero h1 em{
-  font-style:normal;
   color:var(--accent);
+}
+.hero-but{
+  text-align:center;font-size:14px;color:var(--muted);
+  letter-spacing:0.15em;margin-bottom:18px;
+  font-family:-apple-system,sans-serif;
+}
+.hero-checks{
+  list-style:none;padding:0;
+  max-width:520px;margin:0 auto 28px;
+}
+.hero-checks li{
+  font-size:16px;line-height:2.0;
+  padding:10px 0 10px 32px;
+  position:relative;
+  color:var(--text);
+}
+.hero-checks li::before{
+  content:"✔";position:absolute;left:0;top:10px;
+  color:var(--accent);font-weight:700;
+  font-family:-apple-system,sans-serif;
+}
+.hero-q{
+  text-align:center;font-size:15px;color:var(--muted);
+  margin-bottom:48px;letter-spacing:0.05em;
 }
 .hero-divider{
   width:48px;height:1px;background:var(--accent);
-  margin:0 auto 32px;
+  margin:0 auto 36px;
 }
-.hero-sub{
-  font-size:16px;
-  color:var(--muted);
-  line-height:2.1;
-  max-width:580px;
-  margin:0 auto 32px;
+.hero-promise-text{
+  text-align:center;font-size:clamp(17px,2.6vw,22px);
+  line-height:2.0;color:var(--text);
+  letter-spacing:0.04em;
+  margin-bottom:24px;
 }
-.hero-promise{
+.hero-promise-text em{font-style:normal;color:var(--accent);font-weight:700}
+.hero-cta-line{
+  text-align:center;font-size:14px;color:var(--accent);
+  letter-spacing:0.2em;margin-top:24px;
+  font-family:-apple-system,sans-serif;font-weight:600;
+}
+.hero-tag{
   display:inline-block;
   font-family:-apple-system,sans-serif;
-  font-size:13px;
+  font-size:12px;
   color:var(--pro);
   background:var(--pro-soft);
   border:1px solid #99f6e4;
-  padding:10px 20px;
+  padding:8px 16px;
   border-radius:100px;
-  letter-spacing:0.05em;
+  letter-spacing:0.1em;
+  margin-top:8px;
 }
+.hero-tag-wrap{text-align:center;margin-top:8px}
 
 /* SECTIONS */
 section{padding:72px 0;border-bottom:1px solid var(--line)}
@@ -198,7 +228,6 @@ ul.echo li::before{
 }
 .dream p strong{color:var(--accent);font-weight:600;border-bottom:1px solid #fde68a}
 
-/* PRINCIPLES */
 .principles{margin-top:8px}
 .principle{
   padding:24px 0;
@@ -219,7 +248,6 @@ ul.echo li::before{
   color:var(--muted);font-size:14px;line-height:2.1;
 }
 
-/* METHOD (傾聴・質問・承認) */
 .method-intro{
   background:var(--card);
   border-left:3px solid var(--accent);
@@ -256,7 +284,6 @@ ul.echo li::before{
   font-size:13px;color:var(--muted);line-height:1.95;
 }
 
-/* PROMISE block */
 .promise-block{
   background:var(--pro-soft);
   border:1px solid #99f6e4;
@@ -295,7 +322,6 @@ ul.echo li::before{
   font-family:-apple-system,sans-serif;
 }
 
-/* TESTIMONIAL */
 .testimonial{
   padding:32px;
   background:var(--card);
@@ -326,7 +352,6 @@ ul.echo li::before{
 .placeholder strong{font-weight:700}
 .placeholder ul{list-style:disc;padding-left:20px;margin-top:8px}
 
-/* CTA BLOCK */
 .cta{
   padding:48px 32px;
   background:var(--accent-soft);
@@ -355,7 +380,6 @@ ul.echo li::before{
   margin-top:14px;letter-spacing:0.05em;
 }
 
-/* FILTER */
 .filter-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -381,7 +405,6 @@ ul.echo li::before{
 .filter-col.off li{color:var(--muted)}
 .filter-col.off li::before{content:"×";color:var(--note);position:absolute;left:0}
 
-/* MUST BE qualifier */
 .must-be{
   margin-top:24px;
   padding:20px 24px;
@@ -394,7 +417,6 @@ ul.echo li::before{
 }
 .must-be strong{color:var(--note);font-weight:700}
 
-/* FOOTER */
 footer{
   padding:40px 28px 60px;
   text-align:center;
@@ -419,25 +441,47 @@ footer{
 <body>
 
 <div class="draft-bar">
-  ⚠ DRAFT v0.2 — Eden 講師養成講座 LP 叩き台 ／ 数字・実績・カリキュラム詳細は要埋め込み
+  ⚠ DRAFT v0.4 — Eden 講師養成講座 LP 叩き台 ／ 「勉強が好き／教えるのも好き」入口＋大手塾の不満3点強調
 </div>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="wrap">
-    <div class="hero-eyebrow">Eden 認定家庭教師 養成講座</div>
-    <h1>
-      子供の人生は、<br>
-      <em>一年で本当に変わる。</em><br>
-      ── その変化に、魂が震える先生へ。
-    </h1>
-    <div class="hero-divider"></div>
-    <p class="hero-sub">
-      Eden では、子供の魂が動く瞬間に立ち会える伴走型の家庭教師を育てています。<br>
-      「教える」だけでは終わらない、自分の存在ごと子供と関わる先生になる講座です。
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Eden 認定家庭教師 養成講座 / 中学受験コース</div>
+
+    <p class="hero-statement">
+      「勉強が好き」<br>
+      「教えるのも好き」
     </p>
-    <div class="hero-promise">
-      ✓ 認定後は「高時給でもご依頼が途絶えない」状況を、Eden が用意します
+
+    <p class="hero-but">でも、</p>
+
+    <ul class="hero-checks">
+      <li>大手塾では生徒を深く見れない</li>
+      <li>作業ばかりで指導に集中できない</li>
+      <li>"本当に伸ばす教育"ができない</li>
+    </ul>
+
+    <p class="hero-q">そう感じたことはありませんか？</p>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-promise-text">
+      <em>偏差値40台からの逆転合格</em>。
+    </p>
+    <p class="hero-promise-text" style="margin-top:8px;font-size:clamp(15px,2.2vw,18px);color:var(--muted)">
+      子ども達が、一年で本当に変わっていく。<br>
+      そんな瞬間を、何度も見届けられる仕事です。
+    </p>
+    <p class="hero-promise-text" style="margin-top:24px;font-size:clamp(15px,2.2vw,18px)">
+      自宅からオンラインで、本気で中学受験指導に向き合いながら、<br>
+      <em>収入も自由も</em>目指せる。
+    </p>
+
+    <p class="hero-cta-line">その新しい働き方を、今回限定で公開します。</p>
+
+    <div class="hero-tag-wrap">
+      <span class="hero-tag">経験者限定／少人数制／自宅オンライン稼働</span>
     </div>
   </div>
 </section>
@@ -447,46 +491,47 @@ footer{
   <div class="wrap">
     <div class="section-eye">この講座は、こんな方のために</div>
     <h2>あなたは、<em>このいずれか</em>に当てはまりますか？</h2>
-    <p class="lead">既に教育に関わっているか、何らかの形で「教える経験」を持っている方を対象にしています。スキルゼロから始める方には、別の入口をおすすめしています。</p>
+    <p class="lead">大手塾／個別塾／家庭教師として、<strong>中学受験の指導経験を持つ方</strong> を対象にしています。中学受験は親子総力戦の特殊領域です。経験ゼロから始める方には、別の入口をおすすめしています。</p>
 
     <div class="personas">
       <div class="persona">
         <div class="persona-num">PERSONA 01</div>
-        <p class="persona-line">現在、家庭教師・塾講師をしていて、</p>
+        <p class="persona-line">大手塾で中学受験を担当しているけれど、</p>
         <p class="persona-line"><span class="persona-em">プロとして更に収入とスキルを上げたい</span></p>
       </div>
       <div class="persona">
         <div class="persona-num">PERSONA 02</div>
-        <p class="persona-line">育児・子育てがひと段落して、ご自身の子育て経験と社会経験を生かして、</p>
+        <p class="persona-line">育児・子育てがひと段落して、自分の中学受験経験や子育て経験を生かして、</p>
         <p class="persona-line"><span class="persona-em">子供にも喜ばれながら高収入を得たい</span></p>
       </div>
       <div class="persona">
         <div class="persona-num">PERSONA 03</div>
-        <p class="persona-line">塾や家庭教師での能力や教えるスキルには自信があるけれど、クライアントがいつ途切れるのか不安でたまらないので、</p>
+        <p class="persona-line">中学受験指導のスキルには自信があるけれど、クライアントがいつ途切れるのか不安でたまらないので、</p>
         <p class="persona-line"><span class="persona-em">安定的に生徒が欲しい</span></p>
       </div>
       <div class="persona">
         <div class="persona-num">PERSONA 04</div>
-        <p class="persona-line">自分のしている仕事と、頂いてる金額の対価が見合っていないと</p>
+        <p class="persona-line">大手塾で中学受験を教えているが、自分の労働量と頂いている金額が見合わないと</p>
         <p class="persona-line"><span class="persona-em">悩んでいる</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 共感パート (実務+情緒の両面) -->
+<!-- 共感パート -->
 <section>
   <div class="wrap">
-    <div class="section-eye">こんな葛藤を、ずっと抱えていませんか</div>
-    <h2>子供のことが本当に好きで、教えるスキルもある。<br>でも、<em>仕事の現実</em> がそれに見合っていない。</h2>
+    <div class="section-eye">大手塾で感じる、構造的なジレンマ</div>
+    <h2>中学受験は本来、<br><em>一人ひとりに本気で向き合う</em>仕事のはず。</h2>
     <ul class="echo">
-      <li>教えるスキルはある。でも、単発で終わって、子供の本当の変化を見届けられない</li>
-      <li>個人で生徒を取っているけれど、いつ途切れるか分からない不安が常にある</li>
-      <li>時給で頭打ち。長く深く関わりたいのに、その仕組みがどこにもない</li>
-      <li>子供と関わる仕事は楽しい。でも、対価が労働価値と釣り合っていない</li>
-      <li>教育観・子供観が合わない事務所で消耗している</li>
-      <li>自分の子育て経験を活かしたいけれど、未経験では雇ってもらえない</li>
-      <li>「成績を上げる」だけの仕事に、心が満たされない</li>
+      <li><strong style="color:var(--accent)">"授業だけ"</strong> ── 1コマ終われば次のクラス。一人の子の伸び悩みを、最後まで追いきれない</li>
+      <li><strong style="color:var(--accent)">"回転作業"</strong> ── 教材コピー、模試集計、シフト調整、保護者対応のメール…指導の準備が後回しになる</li>
+      <li><strong style="color:var(--accent)">"生徒を見れない"</strong> ── あの子が今どこでつまずいているか、何が動機を奪っているか。気づいているのに、向き合う時間がない</li>
+      <li>偏差値が伸び悩んだ子を「諦める」風土に違和感がある。"本当に伸ばす教育"ができない</li>
+      <li>受験直前期、夜10時帰宅・土日全出勤。自分の家族との時間が、ゼロになる</li>
+      <li>本当は親御さんの不安にも寄り添いたいのに、面談の30分しか話せない</li>
+      <li>時給で頭打ち。塾のブランドで売れているのに、自分の取り分が少ない</li>
+      <li>合格発表の瞬間、本当に嬉しいのは塾長より自分のはず ── でもそれが報われない</li>
     </ul>
   </div>
 </section>
@@ -495,12 +540,12 @@ footer{
 <section>
   <div class="wrap">
     <div class="section-eye">そんなあなたが、Eden の先生になったら</div>
-    <h2>朝、目が覚めて、<br><em>子供に会えるのが楽しみ</em>になる。</h2>
+    <h2>自宅から、<em>偏差値40台</em>の子と<br>第一志望に向かって走り出せる。</h2>
     <div class="dream">
-      <p>担当している子供から「先生、聞いてー！」と LINE が届く。学校で起きたこと、最近ハマっていること、誰にも言えなかった本音。<strong>あなただからこそ、子供は心を開いてくれる</strong>。</p>
-      <p>授業の合間、その子のお母さんからこう言われる。「あの子、先生に会ってから本当に変わったんです」と。<strong>あなたの存在が、家庭そのものを照らしている</strong>。</p>
-      <p>1年後、4月の進級。背丈も顔つきも、心も、あの春とはまるで違う。<strong>「一年で本当に変わる」</strong>──その瞬間に、あなたは立ち会っている。</p>
-      <p>そして、夕方。自分の子供と、地べたに座って、思いきり遊ぶ時間が、きちんとある。<strong>仕事も家庭も、自分の魂も、どれも犠牲にしない</strong>。それが Eden の家庭教師の働き方です。</p>
+      <p>朝、自宅の書斎で、その子の前回テストを開く。「ここの算数、何でつまずいたんだろう？」と一緒に考える。<strong>10人を一斉に進めるのではなく、その子のペースで深く掘れる</strong>。</p>
+      <p>授業の合間、お母さんから LINE が届く。「先生のおかげで、あの子、自分から問題集開くようになりました」。<strong>家庭の空気が変わったことが、合格への最短ルートだと知っている</strong>。</p>
+      <p>2月1日、合格発表。偏差値40台から始めて、第一志望の合格画面を一緒に見る。お母さんが泣く。あなたも泣く。<strong>「本気でやってよかった」── 大手塾では味わえなかった、この瞬間がある</strong>。</p>
+      <p>そして、自分の家族との時間も削らない。夜10時帰宅も土日全出勤もない。<strong>仕事も家庭も、子どもの逆転合格も、全部諦めない働き方</strong>。それが Eden の家庭教師です。</p>
     </div>
 
     <div class="testimonial">
@@ -515,9 +560,9 @@ footer{
 <!-- Eden 教育メソッド (傾聴・質問・承認) -->
 <section>
   <div class="wrap">
-    <div class="section-eye">Eden の教育メソッド</div>
-    <h2>「教えるんじゃない、信じる」を、<br><em>実技</em> として身につける。</h2>
-    <p class="lead">情緒や愛情だけでは、子供の人生は変わりません。Eden は「子供の成長」を技術として捉え、再現可能な3つのコアスキルとして体系化しています。</p>
+    <div class="section-eye">Eden の指導メソッド</div>
+    <h2>偏差値40台を逆転合格に導く<br><em>3つのコアスキル</em>。</h2>
+    <p class="lead">中学受験は、教科の知識量勝負ではありません。<strong>動機が立ち上がった子は、半年で偏差値10は普通に伸びます</strong>。Eden は、その動機形成を再現可能な3つのスキルとして体系化しています。</p>
 
     <div class="method-intro">
       子供の成長のためには、<strong>「行動を促すかかわり方」</strong>が必須です。<br><br>
@@ -530,46 +575,46 @@ footer{
       <div class="method-step">
         <div class="method-step-num">1</div>
         <h4>傾聴</h4>
-        <p>子供の表面的な言葉の奥にある「本当の声」を、ジャッジせずに聴き取るスキル。</p>
+        <p>「分からない」の奥にある「なぜできない」を、ジャッジせずに聴き取る。中学受験生は、本音をなかなか言えません。</p>
       </div>
       <div class="method-step">
         <div class="method-step-num">2</div>
         <h4>質問</h4>
-        <p>子供自身が、自分で答えにたどり着くための問いかけ方。教えるのではなく引き出す技術。</p>
+        <p>「教える」のではなく、子供自身が答えにたどり着くための問いかけ方。受験算数も国語も、自分で気づいた問題は二度と忘れません。</p>
       </div>
       <div class="method-step">
         <div class="method-step-num">3</div>
         <h4>承認</h4>
-        <p>子供が「自分の選択をしていい」と感じられる関わり方。動機が立ち上がる土台を作る。</p>
+        <p>「あなたはそれでいい」と感じられる関わり方。承認された子は、勝手に勉強を始めます。これが偏差値40から逆転する子の共通点です。</p>
       </div>
     </div>
 
-    <p class="lead" style="margin-top:32px">この3つは、知っているだけでは使えません。Eden の養成講座では、ロールプレイ・ケース演習・現役講師の指導を通じて、<em>あなたの実技として</em> 身につくまで磨きます。</p>
+    <p class="lead" style="margin-top:32px">この3つは、知っているだけでは使えません。Eden の養成講座では、中学受験生の実際のケースを使ったロールプレイ・現役講師の伴走で、<em>あなたの実技として</em> 身につくまで磨きます。</p>
   </div>
 </section>
 
 <!-- Eden の3つの本質 -->
 <section>
   <div class="wrap">
-    <div class="section-eye">Eden 教育の3つの本質</div>
-    <h2>Eden の家庭教師は、<br><em>教える人</em> ではありません。</h2>
-    <p class="lead">私たちは、教科書の解説をする人を育てているのではありません。一人の子供の人生に、1年・3年と寄り添い、その子の「自分らしく生きる力」が育つ瞬間を見届ける伴走者を育てています。</p>
+    <div class="section-eye">Eden 中学受験指導の3つの本質</div>
+    <h2>Eden の家庭教師は、<br><em>偏差値を上げる人</em> ではありません。</h2>
+    <p class="lead">私たちは、塾のテキストを解説する人を育てているのではありません。一人の子の人生に、1〜3年と寄り添い、その子が「自分の意志で受験に向かう」瞬間を見届ける伴走者を育てています。</p>
 
     <div class="principles">
       <div class="principle">
         <div class="principle-num">PRINCIPLE 01</div>
-        <h4>子供を「正解」に当てはめない。<br>その子のままで伸びる道を、一緒に探す。</h4>
-        <p>偏差値の枠でも、親の期待の型でもなく、その子自身の中にある「本当にやりたいこと」「魂が動く瞬間」を見つける。私たちが教えるのは、答えではなく、自分の答えを見つける力です。</p>
+        <h4>偏差値ではなく、<br>その子の伸びしろを見る。</h4>
+        <p>偏差値40の子は、伸びしろの塊です。大手塾が拾えない「この子は何で勉強できないのか」を一人ずつ解きほぐす。Eden の先生が見るのは、点数ではなく <em>その子の壁</em> です。</p>
       </div>
       <div class="principle">
         <div class="principle-num">PRINCIPLE 02</div>
-        <h4>家庭そのものを支える。<br>親御さんの「完璧でないといけない」を解放する。</h4>
-        <p>子供だけを見ていても、本質的な変化は起こりません。Eden の先生は、お母さん・お父さんの一番近くで「大丈夫ですよ」と言える存在です。家庭の空気を整えることが、子供の成長の土台になります。</p>
+        <h4>家庭そのものを支える。<br>親御さんの不安に伴走する。</h4>
+        <p>中学受験は、親の不安が一番大きい。「うちの子は本当に大丈夫か」「他の家庭はもっとやっているらしい」── その不安が、子供にそのまま伝染します。Eden の先生は、お母さんの一番近くで「大丈夫ですよ」と言える存在です。</p>
       </div>
       <div class="principle">
         <div class="principle-num">PRINCIPLE 03</div>
-        <h4>教えるんじゃない、信じる。<br>子供は、自分の力で変わる。</h4>
-        <p>「一年で変わる」という言葉は、私たちが変えるのではなく、子供が自分の力で変わる、その時間を信じて待てるということ。先生の役割は、変化が起きるまで横にいること。それが Eden の教育です。</p>
+        <h4>教えるんじゃない、信じる。<br>逆転合格は、信じて待った先にある。</h4>
+        <p>「一年で変わる」のは、私たちが変えるのではなく、子供が自分の力で変わるから。先生の役割は、変化が起きるまで横にいて、伴走すること。<em>偏差値40台からの逆転合格</em>は、この時間の中で生まれます。</p>
       </div>
     </div>
   </div>
@@ -579,19 +624,20 @@ footer{
 <section>
   <div class="wrap">
     <div class="section-eye pro">この講座を通して、あなたが手に入れるもの</div>
-    <h2>高いスキル ＋<br><em class="pro">高時給でもご依頼が途絶えない状況</em>。</h2>
-    <p class="lead">Eden 認定家庭教師は、自分で営業・集客する必要がありません。Eden が大切に育てている家庭からのご依頼を、講師の方に直接マッチングする業務委託モデルです。</p>
+    <h2>高い指導スキル ＋<br><em class="pro">高時給でもご依頼が途絶えない状況</em>。</h2>
+    <p class="lead">Eden 認定家庭教師は、自分で営業・集客する必要がありません。中学受験を本気で考えている家庭からのご依頼を、Eden が直接マッチングする業務委託モデルです。</p>
 
     <div class="promise-block">
       <div class="label">Promise — Eden 認定家庭教師として</div>
       <h3>あなたが受け取るのは、<br><em>スキル × 信頼 × 安定</em> の3つです。</h3>
       <ul>
-        <li><strong>スキル</strong> ── 傾聴・質問・承認の3コアスキル＋Eden 独自の伴走メソッドが、ロールプレイで体得できる</li>
-        <li><strong>信頼</strong> ── 「家庭教師Eden」のブランドを背景に、家庭から直接依頼が入る</li>
-        <li><strong>安定</strong> ── 一人の子供と1年・3年と関わる長期契約モデル。短期で生徒が入れ替わらない</li>
+        <li><strong>スキル</strong> ── 傾聴・質問・承認＋Eden 独自の中学受験伴走メソッドが、ロールプレイで体得できる</li>
+        <li><strong>信頼</strong> ── 「家庭教師Eden」のブランドを背景に、中学受験を本気で考える家庭から直接依頼が入る</li>
+        <li><strong>安定</strong> ── 一人の子と1〜3年の長期契約モデル。短期で生徒が入れ替わらない</li>
         <li><strong>営業ゼロ</strong> ── あなたは集客・営業しなくていい。Eden が常に新しい家庭を抱えている</li>
         <li><strong>高時給</strong> ── 業務委託で時給◯,◯◯◯円〜<span style="color:var(--note);font-family:-apple-system,sans-serif;font-size:12px;margin-left:8px">[要確認]</span></li>
         <li><strong>選ばれる側</strong> ── 認定講師の枠は限定。生徒の方が常に多い状況を保つ</li>
+        <li><strong>自宅オンライン</strong> ── 通勤ゼロ。家族との時間も削らない</li>
       </ul>
     </div>
 
@@ -599,8 +645,8 @@ footer{
       <strong>[要確認・要記入]</strong> Promise セクションの数字確定：
       <ul>
         <li>業務委託の時給／件単価／月収目安</li>
-        <li>現在 Eden が抱えている家庭の数 / 待機リストの数</li>
-        <li>1年後・3年後の生徒継続率</li>
+        <li>現在 Eden が抱えている中学受験家庭の数 / 待機リストの数</li>
+        <li>これまでの逆転合格の実績数（偏差値40→○○中合格 の事例数）</li>
         <li>講師1名あたりの平均担当数（人数 × 期間）</li>
       </ul>
     </div>
@@ -611,7 +657,7 @@ footer{
 <section>
   <div class="wrap">
     <div class="section-eye">養成講座の内容</div>
-    <h2>Eden の教育を体得するための<br><em>○ヶ月のプログラム</em>。</h2>
+    <h2>Eden の中学受験指導を体得する<br><em>○ヶ月のプログラム</em>。</h2>
 
     <div class="placeholder">
       <strong>[要確認・要記入]</strong> 講座カリキュラム詳細：
@@ -629,68 +675,69 @@ footer{
     <div class="principles">
       <div class="principle">
         <div class="principle-num">MODULE 01</div>
-        <h4>Eden の教育思想を、自分の言葉で語れるようになる</h4>
-        <p>「一年で本当に変わる」とはどういうことか。Eden が大切にしている子供観・家庭観・教育観を、座学と対話を通じて自分のものにします。</p>
+        <h4>Eden の中学受験観を、自分の言葉で語れるようになる</h4>
+        <p>「偏差値40からの逆転合格」とはどういうことか。Eden が大切にしている子供観・家庭観・受験観を、座学と対話を通じて自分のものにします。</p>
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 02</div>
-        <h4>傾聴・質問・承認 ── 3つのコアスキルを体得する</h4>
-        <p>知識として知っているだけでは使えません。実際の子供との場面を再現したロールプレイ・ケース演習で、3つのスキルが身体に染み込むまで反復します。</p>
+        <h4>傾聴・質問・承認 ── 中学受験生への適用</h4>
+        <p>「受験勉強したくない」「絶対無理」と言う子に、どう関わるか。実際の中学受験生の事例ロールプレイで、3つのスキルが身体に染み込むまで反復します。</p>
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 03</div>
-        <h4>家庭ぐるみで支える伴走の仕方</h4>
-        <p>お母さん・お父さんと、どう信頼関係を作り、どう一緒に子供を見守るか。Eden の現役講師の事例から、家庭を巻き込む技を学びます。</p>
+        <h4>受験家庭の親御さんに伴走するスキル</h4>
+        <p>中学受験は親の不安戦争です。お母さん・お父さんとどう信頼を作り、どう「大丈夫ですよ」と言えるか。家庭の空気を整える技術を学びます。</p>
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 04</div>
-        <h4>教科指導 × 動機付け の応用</h4>
-        <p>受験指導・進路相談・教科の壁。子供の動機が立ち上がった瞬間に、教科のスキルがどう活きるか。Eden 流の教科×動機の組み立て方を実習します。</p>
+        <h4>偏差値40→逆転合格を実現する教科指導 × 動機付け</h4>
+        <p>算数の壁（場合の数・図形・速さ）／国語の壁（記述・物語文）／理社の暗記。各教科で「動機が立ち上がった子はどう伸びるか」のEden流アプローチを実習します。</p>
       </div>
       <div class="principle">
         <div class="principle-num">MODULE 05</div>
         <h4>認定試験 → 業務委託契約 → 担当生徒スタート</h4>
-        <p>認定試験を経て、Eden 認定家庭教師として業務委託契約。最初は先輩講師がメンターとしてサポートしながら、担当生徒を持っていきます。</p>
+        <p>認定試験を経て、Eden 認定家庭教師として業務委託契約。最初は先輩講師がメンターとしてサポートしながら、自宅オンラインで担当生徒を持っていきます。</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 向き不向き (情弱排除) -->
+<!-- 向き不向き -->
 <section>
   <div class="wrap">
     <div class="section-eye">この講座は、誰のためのものか</div>
     <h2><em>すべての人</em> に、向いている講座ではありません。</h2>
-    <p class="lead">Eden の家庭教師は、ある程度の教育経験／プロ意識のある方を前提にしています。スキルゼロから始めたい方や、副業感覚で気軽に試したい方には、別の入口をおすすめしています。</p>
+    <p class="lead">中学受験は親子総力戦の特殊領域です。指導経験ゼロから始めたい方や、副業で気軽に試したい方には、別の入口をおすすめしています。</p>
 
     <div class="must-be">
-      <strong>応募の必須条件：</strong> 何らかの形で「子供に教える経験」を持っていること（家庭教師／塾講師／教員／コーチング／自分の子育て経験 等。期間や形式は不問）。<br>
-      未経験で、ゼロから教えるスキルを身につけたい方は、まずは個別塾でのアルバイト等で経験を積むことをおすすめします。
+      <strong>応募の必須条件：</strong> 何らかの形で <strong>中学受験指導の経験</strong> を持っていること（大手塾／個別塾／家庭教師／自分自身が中学受験経験者でかつ子供の受験を伴走した経験 等。期間や形式は問いません）。<br>
+      指導経験ゼロから始めたい方は、まず大手塾でアシスタントから経験を積むことをおすすめします。
     </div>
 
     <div class="filter-grid">
       <div class="filter-col on">
         <h4>こんな方に向いています</h4>
         <ul>
-          <li>既に教える経験があり、プロとしてさらにスキル・収入を上げたい</li>
-          <li>子供の話を聞くと、自分の心が動く</li>
-          <li>成績の数字より、その子の表情の変化を喜べる</li>
+          <li>大手塾／個別塾で中学受験を担当した経験がある</li>
+          <li>中学受験算数・国語・理科・社会のいずれかを高い水準で指導できる</li>
+          <li>偏差値40台の子の「伸びしろ」を見つけるのが得意</li>
+          <li>大手塾の構造的限界に違和感を抱いている</li>
           <li>個人で取るのは限界。自分で営業しなくていい仕組みが欲しい</li>
           <li>クライアントの不安定さに疲れ、安定的に生徒を持ちたい</li>
-          <li>自分の家族・暮らしを大切にしながら、深く誰かに関わる仕事を探している</li>
-          <li>「あなたに会えてよかった」と言われる仕事に、本気で取り組みたい</li>
+          <li>自分の家族・暮らしを大切にしながら、深く子と関わる仕事を探している</li>
+          <li>合格発表の瞬間、本気で泣ける仕事をしたい</li>
         </ul>
       </div>
       <div class="filter-col off">
         <h4>こんな方には向きません</h4>
         <ul>
-          <li>未経験で、ゼロから教えるスキルを身につけたい</li>
+          <li>中学受験指導の経験が全くない</li>
           <li>短期で派手に稼ぐことを最優先したい</li>
           <li>副業感覚で「とりあえず試したい」だけ</li>
           <li>自己流に固執し、Eden のメソッドを学ぶ姿勢が薄い</li>
-          <li>子供との関わりは、表面でいいと思っている</li>
+          <li>偏差値が伸びにくい子は「諦める」考え方</li>
           <li>「教える側」と「教わる側」の上下がはっきりした関係を求めている</li>
-          <li>子供の成長より、自分の話を聞いてほしいタイプ</li>
+          <li>子供の動機形成より、自分の指導テクニック披露がしたい</li>
         </ul>
       </div>
     </div>
@@ -706,17 +753,17 @@ footer{
     <div class="placeholder">
       <strong>[要確認・要記入]</strong> 代表者プロフィール／メッセージ：
       <ul>
-        <li>居村先生の経歴・想い</li>
-        <li>Eden を始めた理由</li>
-        <li>これまで何人の家庭・子供を見てきたか</li>
-        <li>講座を始める想い（なぜ今、講師を養成したいのか）</li>
+        <li>居村先生の経歴・想い（中学受験指導歴・実績）</li>
+        <li>Eden を始めた理由（大手塾を辞めた背景があれば強い）</li>
+        <li>これまで何人の偏差値40台→逆転合格を見てきたか</li>
+        <li>講座を始める想い（なぜ今、中学受験の家庭教師を養成したいのか）</li>
         <li>顔写真／プロフィール画像</li>
       </ul>
     </div>
 
     <div class="testimonial">
       [仮文：要差し替え]<br>
-      私が Eden を始めたのは、子供のために本気で動ける先生を、もっと増やしたかったからです。「一年で変わる」という言葉は、私が見てきた何百もの家庭の事実です。一人では届かない場所に、あなたと一緒なら、もっと多くの子供を連れていける。そう信じています。
+      私が Eden を始めたのは、大手塾の中で「この子は伸びる」と分かっていながら、構造的に救えない子を何人も見てきたからです。「偏差値40台からの逆転合格」は、特殊な才能ではなく、関わり方の技術で再現できます。一人では届かない場所に、あなたと一緒なら、もっと多くの家庭を連れていける。そう信じています。
       <div class="testimonial-source">— 居村 [姓] / 株式会社 Eden 代表</div>
     </div>
   </div>
@@ -734,7 +781,7 @@ footer{
       <p>
         オンライン (Zoom) で 60 分。<br>
         担当：居村 ／ Eden 認定講師 [予定]<br>
-        <span style="font-family:-apple-system,sans-serif;font-size:12px;color:var(--note);letter-spacing:0.05em">※ 教育経験のある方限定でご案内しています</span>
+        <span style="font-family:-apple-system,sans-serif;font-size:12px;color:var(--note);letter-spacing:0.05em">※ 中学受験指導の経験者限定でご案内しています</span>
       </p>
       <a href="#" class="cta-btn">[要設定] 個別説明会を予約する →</a>
       <div class="cta-note">無料。日程はカレンダーから選択いただけます。</div>
@@ -744,10 +791,12 @@ footer{
       <strong>[要設計]</strong> 予約フォームのクオリフィケーション項目（情弱排除を兼ねる）：
       <ul>
         <li>姓名 / メール / 電話</li>
-        <li>現在の職業（教員 / 塾講師 / 家庭教師 / 主婦・育児経験者 / その他）</li>
-        <li><strong>子供との関わりの経験年数</strong>（必須・記述式）</li>
-        <li>担当した子供の人数・年齢層</li>
-        <li>教育・心理・コーチングの学習経験</li>
+        <li>現在の職業（大手塾講師 / 個別塾 / 家庭教師 / 元教員 / 主婦・育児経験者 / その他）</li>
+        <li><strong>中学受験指導の経験年数</strong>（必須・記述式）</li>
+        <li>担当した中学受験生の人数 / 担当教科 / 主要な受験校</li>
+        <li>所属／在籍した塾名（差し支えなければ）</li>
+        <li>指導可能な偏差値帯（40台中心 / 50-60 / 上位校 など）</li>
+        <li>自宅オンライン環境（PC・カメラ・回線）の有無</li>
         <li>Eden を知ったきっかけ</li>
         <li>講座への関心度（情報収集中 / 受講前提 / 紹介者あり）</li>
         <li>日時選択</li>
@@ -757,7 +806,7 @@ footer{
 </section>
 
 <footer>
-  <p>Eden 認定家庭教師 養成講座 LP — Draft v0.2 — 2026.05.08</p>
+  <p>Eden 認定家庭教師 養成講座 LP — Draft v0.4 — 2026.05.08</p>
   <p style="margin-top:6px">株式会社 Eden / Internal study draft / noindex</p>
 </footer>
 
